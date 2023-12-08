@@ -60,94 +60,101 @@ CREATE TABLE promotion (
 );
 
 CREATE TABLE vehicle(
-   vehicle_id INT NOT NULL AUTO_INCREMENT,
-   delivery_person_id INT NOT NULL,
-   type VARCHAR(100) NOT NULL,
-   registration_number VARCHAR(100) NOT NULL,
-   model VARCHAR(100) NOT NULL,
-   is_active TINYINT(1) NOT NULL DEFAULT 1,
+   vehicle_id 			INT 			NOT NULL AUTO_INCREMENT,
+   delivery_person_id 	INT 			NOT NULL,
+   type 				VARCHAR(100) 	NOT NULL,
+   registration_number 	VARCHAR(100) 	NOT NULL,
+   model 				VARCHAR(100) 	NOT NULL,
+   is_active 			TINYINT(1) 		NOT NULL DEFAULT 1,
+   
    PRIMARY KEY (vehicle_id),
    
    CONSTRAINT fk_vehicle FOREIGN KEY(delivery_person_id ) REFERENCES delivery_person(delivery_person_id )
 );
 
 CREATE TABLE delivery_person (
-	delivery_person_id INT NOT NULL AUTO_INCREMENT,
-    first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    tel_no VARCHAR(20) NOT NULL,
-    is_active TINYINT(1) NOT NULL DEFAULT 1,
+	delivery_person_id 	INT 			NOT NULL AUTO_INCREMENT,
+    first_name 			VARCHAR(100) 	NOT NULL,
+    last_name 			VARCHAR(100) 	NOT NULL,
+    email 				VARCHAR(100) 	NOT NULL,
+    tel_no 				VARCHAR(20) 	NOT NULL,
+    is_active 			TINYINT(1) 		NOT NULL DEFAULT 1,
     PRIMARY KEY (delivery_person_id)
 );
 
 CREATE TABLE chef (
-	chef_id INT NOT NULL AUTO_INCREMENT,
-	first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL,
-    specialiation VARCHAR(100) NOT NULL,
-    shift VARCHAR(100) NOT NULL,
-    is_active TINYINT(1) NOT NULL DEFAULT 1,
+	chef_id 			INT 			NOT NULL AUTO_INCREMENT,
+	first_name 			VARCHAR(100) 	NOT NULL,
+    last_name 			VARCHAR(100)	NOT NULL,
+    specialiation 		VARCHAR(100) 	NOT NULL,
+    shift 				VARCHAR(100) 	NOT NULL,
+    is_active 			TINYINT(1) 		NOT NULL DEFAULT 1,
+    
     PRIMARY KEY(chef_id)
 );
 
 CREATE TABLE admin (
-	admin_id INT NOT NULL AUTO_INCREMENT,
-    owner_id 				INT 			NOT NULL,
-    first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    tel_no VARCHAR(20) NOT NULL,
-    role VARCHAR(100) NOT NULL,
-    user_name VARCHAR(20) NOT NULL,
-    password CHAR(10) NOT NULL,    
-    registration_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    is_active TINYINT(1) NOT NULL DEFAULT 1,
+	admin_id 			INT 			NOT NULL AUTO_INCREMENT,
+    owner_id 			INT 			NOT NULL,
+    first_name 			VARCHAR(100) 	NOT NULL,
+    last_name 			VARCHAR(100) 	NOT NULL,
+    email 				VARCHAR(100) 	NOT NULL,
+    tel_no				VARCHAR(20) 	NOT NULL,
+    role 				VARCHAR(100)	NOT NULL,
+    user_name 			VARCHAR(20) 	NOT NULL,
+    password 			CHAR(10) 		NOT NULL,    
+    registration_date 	DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    is_active 			TINYINT(1) 		NOT NULL DEFAULT 1,
+    
     PRIMARY KEY (admin_id),
     
     CONSTRAINT fk_admin FOREIGN KEY(owner_id) REFERENCES owner(owner_id)
 );
 
 CREATE TABLE menu (
-    item_id INT NOT NULL AUTO_INCREMENT,
-    menu_name VARCHAR(100) NOT NULL,
-    description VARCHAR(100) NOT NULL,
-    price INT NOT NULL,
-    category VARCHAR(100) NOT NULL,
-    is_active TINYINT(1) NOT NULL DEFAULT 1,
+    item_id 		INT 			NOT NULL AUTO_INCREMENT,
+    menu_name 		VARCHAR(100) 	NOT NULL,
+    description 	VARCHAR(100) 	NOT NULL,
+    price 			DECIMAL(10, 2)	NOT NULL,
+    category 		VARCHAR(100) 	NOT NULL,
+    is_active 		TINYINT(1) 		NOT NULL DEFAULT 1,
+    
     PRIMARY KEY(item_id)
 );
 
 CREATE TABLE orders (
-    order_id INT NOT NULL AUTO_INCREMENT,
+    order_id 			INT 			NOT NULL AUTO_INCREMENT,
     customer_id 		INT 			NOT NULL,
-    order_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    rec_address VARCHAR(255) NOT NULL,
-    send_address VARCHAR(255) NOT NULL,
-    total_amount DECIMAL(10, 2) NOT NULL,
-    order_status BOOLEAN NOT NULL,
-    is_active TINYINT(1) NOT NULL DEFAULT 1,
+    order_date 			DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    rec_address 		VARCHAR(255) 	NOT NULL,
+    send_address 		VARCHAR(255) 	NOT NULL,
+    total_amount 		DECIMAL(10, 2) 	NOT NULL,
+    order_status 		BOOLEAN 		NOT NULL,
+    is_active 			TINYINT(1) 		NOT NULL DEFAULT 1,
+    
     PRIMARY KEY (order_id, customer_id ),
     
     CONSTRAINT fk_orders FOREIGN KEY(customer_id) REFERENCES customer(customer_id)
 );
 
 CREATE TABLE inventory (
-    inventory_id INT NOT NULL AUTO_INCREMENT,
-    owner_id 				INT 			NOT NULL,
-    quantity INTEGER NOT NULL,
-    reorder_level INTEGER NOT NULL,
-    purchase_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    exp_date DATE NOT NULL,
-    is_active TINYINT(1) NOT NULL DEFAULT 1,
+    inventory_id 		INT 		NOT NULL AUTO_INCREMENT,
+    owner_id 			INT 		NOT NULL,
+    quantity 			INT 		NOT NULL,
+    reorder_level 		INT 		NOT NULL,
+    purchase_date 		DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    exp_date 			DATE 		NOT NULL,
+    is_active 			TINYINT(1) 	NOT NULL DEFAULT 1,
+    
     PRIMARY KEY (inventory_id),
     
 	CONSTRAINT fk_inventory FOREIGN KEY(owner_id) REFERENCES owner(owner_id)
 );
 
 CREATE TABLE admin_menu(
-	admin_id INT NOT NULL,
-    item_id INT NOT NULL,
+	admin_id 	INT 	NOT NULL,
+    item_id 	INT 	NOT NULL,
+    
     PRIMARY KEY(admin_id, item_id),
     
 	CONSTRAINT fk1_admin_menu FOREIGN KEY(admin_id) REFERENCES admin(admin_id),
@@ -155,8 +162,9 @@ CREATE TABLE admin_menu(
 );
 
 CREATE TABLE order_menu(
-	customer_id INT NOT NULL,
-    item_id INT NOT NULL,
+	customer_id 	INT 	NOT NULL,
+    item_id 		INT 	NOT NULL,
+    
     PRIMARY KEY(customer_id, item_id),
     
 	CONSTRAINT fk1_order_menu FOREIGN KEY(customer_id) REFERENCES orders(customer_id),
@@ -164,8 +172,9 @@ CREATE TABLE order_menu(
 );
 
 CREATE TABLE customer_promotion(
-	customer_id INT NOT NULL,
-    promotion_id INT NOT NULL,
+	customer_id 	INT 	NOT NULL,
+    promotion_id 	INT 	NOT NULL,
+    
     PRIMARY KEY(customer_id,  promotion_id),
     
 	CONSTRAINT fk1_customer_promotion FOREIGN KEY(customer_id) REFERENCES customer(customer_id),
@@ -173,8 +182,9 @@ CREATE TABLE customer_promotion(
 );
 
 CREATE TABLE chef_order(
-	chef_id INT NOT NULL,
-    order_id INT NOT NULL,
+	chef_id 	INT 	NOT NULL,
+    order_id 	INT 	NOT NULL,
+    
     PRIMARY KEY(chef_id,order_id),
     
 	CONSTRAINT fk1_chef_order FOREIGN KEY(chef_id) REFERENCES chef(chef_id),
