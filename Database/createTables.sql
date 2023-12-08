@@ -49,7 +49,7 @@ CREATE TABLE promotion (
     admin_id 				INT 			NOT NULL,
     discount_percentage 	VARCHAR(3)		NOT NULL,
     description	 			VARCHAR(1000)	NOT NULL,
-    promotion_period 		DATE			NOT NULL,
+    promotion_period 		VARCHAR(100)	NOT NULL,
     terms_and_conditions 	VARCHAR(1000)   NOT NULL,
     is_active 				TINYINT(1)	 	NOT NULL DEFAULT 1,
     
@@ -182,13 +182,13 @@ CREATE TABLE customer_promotion(
 );
 
 CREATE TABLE chef_order(
-	chef_id 	INT 	NOT NULL,
-    order_id 	INT 	NOT NULL,
+	chef_id 		INT 	NOT NULL,
+    customer_id 	INT 	NOT NULL,
     
-    PRIMARY KEY(chef_id,order_id),
+    PRIMARY KEY(chef_id, customer_id),
     
 	CONSTRAINT fk1_chef_order FOREIGN KEY(chef_id) REFERENCES chef(chef_id),
-    CONSTRAINT fk2_chef_order FOREIGN KEY(order_id) REFERENCES orders(order_id)  
+    CONSTRAINT fk2_chef_order FOREIGN KEY( customer_id) REFERENCES  orders(customer_id)  
 );
 
 SELECT * FROM orders;
