@@ -7,7 +7,8 @@ public class Customer extends Person {
     private int customerId;
     private String userName;
     private String password;
-    private int isActive;
+    private boolean isActive;
+    private String isActiveStatus;
     private LocalDateTime registrationDate;
 
     // Default constructor
@@ -15,11 +16,18 @@ public class Customer extends Person {
     }
 
     // Overloaded constructor
-    public Customer(String firstName, String lastName,String email, String telNo, int customerId, String userName, String password) {
+    public Customer(int customerId,String firstName, String lastName,String email, String telNo,String userName, String password, boolean isActive, String isActiveStatus, LocalDateTime registrationDate) {
         super(firstName, lastName, email, telNo);
         this.customerId = customerId;
         this.userName = userName;
         this.password = password;
+        this.isActive = isActive;
+        this.isActiveStatus = isActiveStatus;
+        this.registrationDate = registrationDate;
+    }
+
+    public Customer(int returnCustomerId, String firstName, String lastName, String email, String telNo, String userName, String password, boolean active, LocalDateTime registrationDate) {
+        
     }
 
     // Getter and Setter for customerId
@@ -50,12 +58,21 @@ public class Customer extends Person {
     }
 
     // Getter and Setter for isActive
-    public int getIsActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 
-    public void setIsActive(int isActive) {
+    public void setIsActive(boolean isActive) {
         this.isActive = isActive;
+    }
+    
+        // Getter and Setter for isActiveStatus
+    public String getIsActiveStatus() {
+        return isActiveStatus;
+    }
+
+    public void setIsActiveStatus(String isActiveStatus) {
+        this.isActiveStatus = isActiveStatus;
     }
 
     // Getter and Setter for registrationDate
