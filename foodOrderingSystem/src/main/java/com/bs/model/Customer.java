@@ -15,8 +15,9 @@ public class Customer extends Person {
     }
 
     // Overloaded constructor
-    public Customer(String firstName, String lastName,String email, String telNo, String userName, String password) {
+    public Customer(String firstName, String lastName,String email, String telNo, int customerId, String userName, String password) {
         super(firstName, lastName, email, telNo);
+        this.customerId = customerId;
         this.userName = userName;
         this.password = password;
     }
