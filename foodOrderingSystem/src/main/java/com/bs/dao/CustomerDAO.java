@@ -19,11 +19,11 @@ public class CustomerDAO implements ICustomerDAO{
                                                     + "user_name, password, is_active, registration_date "
                                                     + "FROM customer" + "WHERE customer_id = ?";
 
-   private static final String INSERT_MOVIE = "INSERT INTO customer(first_name, last_name, email, tel_no, "
+   private static final String INSERT_CUSTOMER = "INSERT INTO customer(first_name, last_name, email, tel_no, "
                                             + "user_name, password, is_active, registration_date )"
                                             + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);";
    
-   private static final String UPDATE_MOVIE = "UPDATE customer SET first_name = ?, last_";
+   private static final String UPDATE_CUSTOMER = "UPDATE customer SET first_name = ?, last_";
    
 
     @Override
@@ -103,8 +103,28 @@ public class CustomerDAO implements ICustomerDAO{
     @Override
     public boolean insertCustomer(Customer customer) {
         
-       return false;
+      System.out.println(INSERT_CUSTOMER);
+      boolean rowInserted = false;
+      
+      try{
+          
+          Connection con = DBConnection.getConnection();
+          PreparedStatement stmt = con.prepareStatement(INSERT_CUSTOMER);
+          
+          stmt.setString(1, customer.getFirstName());
+          stmt.setString(2,customer.getLastName());
+          stmt.setString(3, customer.getEmail());
+          stmt.setString(4, customer.getTelNo());
+          stmt.setString(5, customer.getUserName());
+          stmt.setString(6, customer.getPassword());
+          
+          stmt.executeUpdate();
+          
+      }catch(Exception e){
+          e.printStackTrace();
+      }
         
+      return rowInserted;
     }
 
     @Override
