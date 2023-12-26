@@ -19,6 +19,12 @@ public class CustomerDAO implements ICustomerDAO{
                                                     + "user_name, password, is_active, registration_date "
                                                     + "FROM customer" + "WHERE customer_id = ?";
 
+   private static final String INSERT_MOVIE = "INSERT INTO customer(first_name, last_name, email, tel_no, "
+                                            + "user_name, password, is_active, registration_date )"
+                                            + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);";
+   
+   private static final String UPDATE_MOVIE = "UPDATE customer SET first_name = ?, last_";
+   
 
     @Override
     public ArrayList<Customer> selectAllMovie(int customerId) {
@@ -96,7 +102,9 @@ public class CustomerDAO implements ICustomerDAO{
 
     @Override
     public boolean insertCustomer(Customer customer) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+       return false;
+        
     }
 
     @Override
