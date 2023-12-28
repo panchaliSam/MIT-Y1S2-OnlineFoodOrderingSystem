@@ -31,11 +31,11 @@ public class Customer extends Person {
     }
 
     public Customer(String firstName, String lastName, String email, String telNo, String userName, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
 
     public Customer(int i, String fname, String lname, String email, String telNo, String userName, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
 
     // Getter and Setter for customerId
@@ -91,4 +91,27 @@ public class Customer extends Person {
     public void setRegistrationDate(LocalDateTime registrationDate) {
         this.registrationDate = registrationDate;
     }
+    
+        @Override
+    public void setFirstName(String firstName) {
+        // Add custom logic if needed
+        super.setFirstName(firstName); // Call the superclass method if you want to retain its functionality
+    }
+    
+    @Override
+    public String toString() {
+        return "Customer{" +
+            "customerId=" + customerId +
+            ", userName='" + userName + '\'' +
+            ", password='" + password + '\'' +
+            ", isActive=" + isActive +
+            ", isActiveStatus='" + isActiveStatus + '\'' +
+            ", registrationDate=" + registrationDate +
+            ", firstName='" + firstName + '\'' +
+            ", lastName='" + lastName + '\'' +
+            ", email='" + email + '\'' +
+            ", telNo='" + telNo + '\'' +
+            '}';
+    }
+    
 }

@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnection {  
+public class DBConnectionPanchali {  
         
         private static String url = "jdbc:mysql://localhost:3306/onlinefoodorderingsystem";
         private static String user = "root";

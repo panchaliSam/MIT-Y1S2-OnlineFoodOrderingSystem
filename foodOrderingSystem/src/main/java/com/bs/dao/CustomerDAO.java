@@ -1,5 +1,10 @@
 package main.java.com.bs.dao;
 
+/**
+ *
+ * @author Group4 - Panchali
+ */
+
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.ICustomerDAO;
 import main.java.com.bs.model.Customer;
-import main.java.com.bs.utility.DBConnection;
+import main.java.com.bs.utility.DBConnectionPanchali;
 
 public class CustomerDAO implements ICustomerDAO{
     
@@ -20,8 +25,8 @@ public class CustomerDAO implements ICustomerDAO{
                                                     + "FROM customer" + "WHERE customer_id = ?";
 
    private static final String INSERT_CUSTOMER = "INSERT INTO customer(first_name, last_name, email, tel_no, "
-                                            + "user_name, password, is_active, registration_date )"
-                                            + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                                            + "user_name, password)"
+                                            + "VALUES(?, ?, ?, ?, ?, ?);";
    
    private static final String UPDATE_CUSTOMER = "UPDATE customer SET first_name = ?, last_";
    
@@ -34,7 +39,7 @@ public class CustomerDAO implements ICustomerDAO{
         ArrayList<Customer> customers = new ArrayList<>();
         
         try{
-            Connection con = DBConnection.getConnection();
+            Connection con = DBConnectionPanchali.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_CUSTOMERS);
             ResultSet rs = stmt.executeQuery();
             
@@ -73,8 +78,9 @@ public class CustomerDAO implements ICustomerDAO{
         ArrayList<Customer> customers = new ArrayList<>();
         
         try{
-            Connection con = DBConnection.getConnection();
+            Connection con = DBConnectionPanchali.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_CUSTOMER_BY_ID);
+            stmt.setInt(1, customerId);
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
@@ -91,7 +97,9 @@ public class CustomerDAO implements ICustomerDAO{
                 
                 Customer customer = new Customer(returnCustomerId, firstName, lastName, email, telNo, userName, password, isActive, registrationDate);
                                 
-                customers.add(customer);                
+                customers.add(customer);       
+                
+                System.out.println("Selected Inventory: " + customer.toString());
             }
                         
         }catch(Exception e){
@@ -110,10 +118,12 @@ public class CustomerDAO implements ICustomerDAO{
       
       try{
           
-          Connection con = DBConnection.getConnection();
+          Connection con = DBConnectionPanchali.getConnection();
           PreparedStatement stmt = con.prepareStatement(INSERT_CUSTOMER);
           
-          stmt.setString(1, customer.getFirstName());
+          stmt.setString(1, customer.getFirstName()); 
+          System.err.println("First done");
+          System.err.println(customer.getFirstName());
           stmt.setString(2,customer.getLastName());
           stmt.setString(3, customer.getEmail());
           stmt.setString(4, customer.getTelNo());
@@ -121,6 +131,8 @@ public class CustomerDAO implements ICustomerDAO{
           stmt.setString(6, customer.getPassword());
           
           stmt.executeUpdate();
+          
+          rowInserted = true;
           
       }catch(Exception e){
           e.printStackTrace();
@@ -137,7 +149,7 @@ public class CustomerDAO implements ICustomerDAO{
       
       try{
           
-          Connection con = DBConnection.getConnection();
+          Connection con = DBConnectionPanchali.getConnection();
           PreparedStatement stmt = con.prepareStatement(UPDATE_CUSTOMER);
           
           stmt.setString(1, customer.getFirstName());
@@ -167,7 +179,7 @@ public class CustomerDAO implements ICustomerDAO{
         
         try{
             
-            Connection con =  DBConnection.getConnection();
+            Connection con =  DBConnectionPanchali.getConnection();
             PreparedStatement stmt = con.prepareStatement(DELETE_CUSTOMER);
             
             stmt.setInt(1, customerId);
