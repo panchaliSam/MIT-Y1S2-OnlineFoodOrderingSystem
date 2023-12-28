@@ -5,8 +5,8 @@ import main.java.com.bs.model.Customer;
 
 public interface ICustomerDAO {
     
-        ArrayList<Customer>selectAllMovie(int customerId);
-    	ArrayList<Customer>selectMovie(int customerId);
+        ArrayList<Customer>selectAllCustomer(int customerId);
+    	ArrayList<Customer>selectCustomer(int customerId);
 	public boolean insertCustomer (Customer customer);
 	public boolean updateCustomer (Customer customer);
 	public boolean deleteCustomer (int customerId);

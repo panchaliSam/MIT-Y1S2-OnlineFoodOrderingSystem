@@ -25,9 +25,11 @@ public class CustomerDAO implements ICustomerDAO{
    
    private static final String UPDATE_CUSTOMER = "UPDATE customer SET first_name = ?, last_";
    
+   private static final String DELETE_CUSTOMER = "DELETE FROM customer WHERE customer_id = ?";
+   
 
     @Override
-    public ArrayList<Customer> selectAllMovie(int customerId) {
+    public ArrayList<Customer> selectAllCustomer(int customerId) {
                 //Cretaing customer arraylist
         ArrayList<Customer> customers = new ArrayList<>();
         
@@ -65,7 +67,7 @@ public class CustomerDAO implements ICustomerDAO{
     }
 
     @Override
-    public ArrayList<Customer> selectMovie(int customerId) {
+    public ArrayList<Customer> selectCustomer(int customerId) {
         
                         //Cretaing customer arraylist
         ArrayList<Customer> customers = new ArrayList<>();
@@ -129,12 +131,55 @@ public class CustomerDAO implements ICustomerDAO{
 
     @Override
     public boolean updateCustomer(Customer customer) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+      System.out.println(UPDATE_CUSTOMER);
+      boolean rowUpdate = false;
+      
+      try{
+          
+          Connection con = DBConnection.getConnection();
+          PreparedStatement stmt = con.prepareStatement(UPDATE_CUSTOMER);
+          
+          stmt.setString(1, customer.getFirstName());
+          stmt.setString(2,customer.getLastName());
+          stmt.setString(3, customer.getEmail());
+          stmt.setString(4, customer.getTelNo());
+          stmt.setString(5, customer.getUserName());
+          stmt.setString(6, customer.getPassword());
+          
+          stmt.setInt(7, customer.getCustomerId());
+          
+          rowUpdate = stmt.executeUpdate() > 0;
+          
+      }catch(Exception e){
+          e.printStackTrace();
+      }
+        
+      return rowUpdate;
+        
     }
 
     @Override
     public boolean deleteCustomer(int customerId) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+        System.out.println(DELETE_CUSTOMER);
+        boolean rowDelete = false;
+        
+        try{
+            
+            Connection con =  DBConnection.getConnection();
+            PreparedStatement stmt = con.prepareStatement(DELETE_CUSTOMER);
+            
+            stmt.setInt(1, customerId);
+            
+            rowDelete = stmt.executeUpdate() > 0;
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        return rowDelete;
+        
     }
     
 }

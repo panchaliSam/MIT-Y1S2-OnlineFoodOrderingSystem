@@ -30,6 +30,14 @@ public class Customer extends Person {
         
     }
 
+    public Customer(String firstName, String lastName, String email, String telNo, String userName, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public Customer(int i, String fname, String lname, String email, String telNo, String userName, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     // Getter and Setter for customerId
     public int getCustomerId() {
         return customerId;
