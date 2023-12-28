@@ -102,15 +102,16 @@ public class Customer extends Person {
     public String toString() {
         return "Customer{" +
             "customerId=" + customerId +
+            ", firstName='" + firstName + '\'' +
+            ", lastName='" + lastName + '\'' +
+            ", email='" + email + '\'' +
+            ", telNo='" + telNo + '\'' +
             ", userName='" + userName + '\'' +
             ", password='" + password + '\'' +
             ", isActive=" + isActive +
             ", isActiveStatus='" + isActiveStatus + '\'' +
             ", registrationDate=" + registrationDate +
-            ", firstName='" + firstName + '\'' +
-            ", lastName='" + lastName + '\'' +
-            ", email='" + email + '\'' +
-            ", telNo='" + telNo + '\'' +
+
             '}';
     }
     

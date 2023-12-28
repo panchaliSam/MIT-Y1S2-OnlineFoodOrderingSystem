@@ -22,7 +22,8 @@ public class CustomerDAO implements ICustomerDAO{
    
    private static final String SELECT_CUSTOMER_BY_ID = "SELECT customer_id, first_name, last_name, email, tel_no, "
                                                     + "user_name, password, is_active, registration_date "
-                                                    + "FROM customer" + "WHERE customer_id = ?";
+                                                    + "FROM customer "
+                                                    + "WHERE customer_id = ?";
 
    private static final String INSERT_CUSTOMER = "INSERT INTO customer(first_name, last_name, email, tel_no, "
                                             + "user_name, password)"
@@ -95,8 +96,20 @@ public class CustomerDAO implements ICustomerDAO{
                 boolean isActive = rs.getBoolean("is_active");
                 LocalDateTime registrationDate = rs.getTimestamp("registration_date").toLocalDateTime();
                 
-                Customer customer = new Customer(returnCustomerId, firstName, lastName, email, telNo, userName, password, isActive, registrationDate);
-                                
+                //Customer customer = new Customer(returnCustomerId, firstName, lastName, email, telNo, userName, password, isActive, registrationDate);
+                            
+                Customer customer = new Customer();
+                     
+                customer.setCustomerId(returnCustomerId);
+                customer.setFirstName(firstName);
+                customer.setLastName(lastName);
+                customer.setEmail(email);
+                customer.setTelNo(telNo);
+                customer.setUserName(userName);
+                customer.setPassword(password);
+                customer.setIsActive(isActive);
+                customer.setRegistrationDate(registrationDate);
+                
                 customers.add(customer);       
                 
                 System.out.println("Selected Inventory: " + customer.toString());
