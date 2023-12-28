@@ -18,7 +18,7 @@ public class DBConnection {
             try{
                 
                 //Load the jdbc Driver class dynamicaaly
-                Class.forName("com.mysql.jdbc.Driver");
+                Class.forName("com.mysql.cj.jdbc.Driver");
                 
                 //The Java DriverManager class's getConnection() method attempts to establish a connection to a database using the given database URL
                 con = (Connection) DriverManager.getConnection(url, user, password);
