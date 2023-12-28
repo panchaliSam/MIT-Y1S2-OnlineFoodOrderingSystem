@@ -63,6 +63,20 @@ INSERT INTO vehicle (delivery_person_id, type, registration_number, model, is_ac
     (4, 'Motorcycle', 'VWX234', 'Yamaha R1', 1),
     (5, 'Scooter', 'YZA567', 'Piaggio Vespa', 1);
 
+#chef table
+INSERT INTO chef (first_name, last_name, email, tel_no, specialiation, shift, is_active)
+VALUES 
+('John', 'Doe', 'john.doe@example.com', '555-1234', 'Italian Cuisine', 'Morning Shift', 1),
+('Jane', 'Smith', 'jane.smith@example.com', '555-5678', 'French Cuisine', 'Evening Shift', 1),
+('Mike', 'Johnson', 'mike.johnson@example.com', '555-9876', 'Sushi', 'Night Shift', 1),
+('Emily', 'Williams', 'emily.williams@example.com', '555-4321', 'Vegetarian Cuisine', 'Morning Shift', 1),
+('David', 'Brown', 'david.brown@example.com', '555-8765', 'Mediterranean Cuisine', 'Evening Shift', 1),
+('Amy', 'Miller', 'amy.miller@example.com', '555-2345', 'Mexican Cuisine', 'Night Shift', 1),
+('Chris', 'Taylor', 'chris.taylor@example.com', '555-7890', 'Asian Fusion', 'Morning Shift', 1),
+('Melissa', 'Clark', 'melissa.clark@example.com', '555-5432', 'Barbecue', 'Evening Shift', 1),
+('Robert', 'Anderson', 'robert.anderson@example.com', '555-2109', 'Seafood', 'Night Shift', 1),
+('Samantha', 'White', 'samantha.white@example.com', '555-6789', 'Indian Cuisine', 'Morning Shift', 1);
+
 #admin table
 INSERT INTO admin (owner_id, first_name, last_name, email, tel_no, role, user_name, password) VALUES
     (1, 'Admin4', 'LastName4', 'admin4@example.com', '111-222-3333', 'Administrator', 'admin_user4', 'passw4'),

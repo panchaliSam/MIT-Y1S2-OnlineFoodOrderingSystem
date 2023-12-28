@@ -86,6 +86,8 @@ CREATE TABLE chef (
 	chef_id 			INT 			NOT NULL AUTO_INCREMENT,
 	first_name 			VARCHAR(100) 	NOT NULL,
     last_name 			VARCHAR(100)	NOT NULL,
+	email 				VARCHAR(100) 	NOT NULL,
+    tel_no 				VARCHAR(20) 	NOT NULL,
     specialiation 		VARCHAR(100) 	NOT NULL,
     shift 				VARCHAR(100) 	NOT NULL,
     is_active 			TINYINT(1) 		NOT NULL DEFAULT 1,
