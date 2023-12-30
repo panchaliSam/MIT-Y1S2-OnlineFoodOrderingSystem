@@ -34,7 +34,14 @@ public class CustomerController {
     }
     
     public void updateCustomer(int id, String fname, String lname, String email, String telNo,String userName, String password){
-        Customer customer = new Customer(id, fname, lname, email, telNo, userName, password);
+        Customer customer = new Customer();
+        customer.setCustomerId(id);
+        customer.setFirstName(fname);
+        customer.setLastName(lname);
+        customer.setEmail(email);
+        customer.setTelNo(telNo);
+        customer.setUserName(userName);
+        customer.setPassword(password);
         customerDAO.updateCustomer(customer);
     }
     
@@ -45,4 +52,5 @@ public class CustomerController {
     public void selectCustomer(int id){
         customerDAO.selectCustomer(id);
     }
+
 }

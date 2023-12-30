@@ -29,7 +29,7 @@ public class CustomerDAO implements ICustomerDAO{
                                             + "user_name, password)"
                                             + "VALUES(?, ?, ?, ?, ?, ?);";
    
-   private static final String UPDATE_CUSTOMER = "UPDATE customer SET first_name = ?, last_";
+   private static final String UPDATE_CUSTOMER = "UPDATE customer SET first_name = ?, last_name = ?, email = ?, tel_no = ?, user_name = ?, password = ? WHERE customer_id = ?";
    
    private static final String DELETE_CUSTOMER = "DELETE FROM customer WHERE customer_id = ?";
    
