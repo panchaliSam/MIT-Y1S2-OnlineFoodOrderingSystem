@@ -61,7 +61,11 @@ public class CustomerDAO implements ICustomerDAO{
                 
                 customer.setIsActiveStatus(isActiveStatus);
                 
-                customers.add(customer);                
+                customers.add(customer);
+                
+                //Polymorphism for customer myTask();
+                customer.myTask();
+
             }
                         
         }catch(Exception e){
@@ -112,7 +116,10 @@ public class CustomerDAO implements ICustomerDAO{
                 
                 customers.add(customer);       
                 
-                System.out.println("Selected Inventory: " + customer.toString());
+                //Polymorphism for customer myTask();
+                customer.myTask();
+                
+                System.out.println("\nSelected Customer: " + customer.toString());
             }
                         
         }catch(Exception e){
@@ -135,8 +142,6 @@ public class CustomerDAO implements ICustomerDAO{
           PreparedStatement stmt = con.prepareStatement(INSERT_CUSTOMER);
           
           stmt.setString(1, customer.getFirstName()); 
-          System.err.println("First done");
-          System.err.println(customer.getFirstName());
           stmt.setString(2,customer.getLastName());
           stmt.setString(3, customer.getEmail());
           stmt.setString(4, customer.getTelNo());
@@ -144,6 +149,9 @@ public class CustomerDAO implements ICustomerDAO{
           stmt.setString(6, customer.getPassword());
           
           stmt.executeUpdate();
+          
+          //Polymorphism for customer myTask();
+          customer.myTask();
           
           rowInserted = true;
           
@@ -176,6 +184,10 @@ public class CustomerDAO implements ICustomerDAO{
           
           rowUpdate = stmt.executeUpdate() > 0;
           
+          
+          //Polymorphism for customer myTask();
+          customer.myTask();
+          
       }catch(Exception e){
           e.printStackTrace();
       }
@@ -198,6 +210,11 @@ public class CustomerDAO implements ICustomerDAO{
             stmt.setInt(1, customerId);
             
             rowDelete = stmt.executeUpdate() > 0;
+            
+             Customer customer = new Customer();
+            
+            //Polymorphism for customer myTask();
+            customer.myTask();
             
         }catch(Exception e){
             e.printStackTrace();

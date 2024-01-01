@@ -10,7 +10,7 @@ import main.java.com.bs.model.Customer;
 
 /**
  *
- * @author Group 4
+ * @author Group4 Panchali
  */
 public class CustomerController {
     

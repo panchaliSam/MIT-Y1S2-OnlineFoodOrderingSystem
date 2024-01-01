@@ -1,5 +1,10 @@
 package main.java.com.bs.model;
 
+/**
+ *
+ * @author Group4 - Panchali
+ */
+
 import java.time.LocalDateTime;
 
 public class Customer extends Person {
@@ -113,6 +118,11 @@ public class Customer extends Person {
             ", registrationDate=" + registrationDate +
 
             '}';
+    }
+
+    @Override
+    public void myTask() {
+        System.out.println("Customer can select menu and place orders.");
     }
     
 }
