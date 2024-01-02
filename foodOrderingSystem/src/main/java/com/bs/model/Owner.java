@@ -8,6 +8,6 @@ package main.java.com.bs.model;
  *
  * @author User
  */
-public class Owner extends Employee {
+public class Owner{
     
 }

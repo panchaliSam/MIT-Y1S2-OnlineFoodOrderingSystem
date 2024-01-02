@@ -185,7 +185,6 @@ public class CustomerAddGUI extends javax.swing.JFrame {
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String fname = jTextField1.getText();
-        System.err.println(jTextField1.getText());
         String lname = jTextField2.getText();
         String email = jTextField3.getText();
         String telNo = jTextField4.getText();

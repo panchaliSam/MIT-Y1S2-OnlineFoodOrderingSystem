@@ -6,9 +6,9 @@ package main.java.com.bs.model;
 
 /**
  *
- * @author User
+ * @author Group4 Panchali
  */
-public class Person {
+abstract public class Person {
     
     protected String firstName;
     protected String lastName;
@@ -63,5 +63,7 @@ public class Person {
     public void setTelNo(String telNo) {
         this.telNo = telNo;
     }
+    
+    abstract public void myTask();
 }
 
