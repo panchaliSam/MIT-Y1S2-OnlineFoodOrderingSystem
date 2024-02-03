@@ -10,4 +10,6 @@ package main.java.com.bs.model;
  */
 public class Inventory {
     
+    
+    
 }
