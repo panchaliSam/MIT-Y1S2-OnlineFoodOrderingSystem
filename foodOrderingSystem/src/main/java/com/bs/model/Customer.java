@@ -20,7 +20,7 @@ public class Customer extends Person {
     public Customer() {
     }
 
-    // Overloaded constructor
+    // Parametric constructor
     public Customer(int customerId,String firstName, String lastName,String email, String telNo,String userName, String password, boolean isActive, String isActiveStatus, LocalDateTime registrationDate) {
         super(firstName, lastName, email, telNo);
         this.customerId = customerId;
