@@ -2,21 +2,23 @@ package main.java.com.bs.utility;
 
 /**
  *
- * @author Group4 - Panchali
+ * @author Group4 - chathumi
  */
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnectionPanchali {  
+public class DBConnectionChathumi {  
         
-        private static String url = "jdbc:mysql://localhost:3306/onlinefoodorderingsystem";
+        private static String url = "jdbc:mysql://localhost:3306/OnlineFoodOrederingSystem";
         private static String user = "root";
-        private static String password = " ";
+        private static String password = "2001chathu";
         
         //JDBC variable for opening, closing and managing connection
         private static Connection con = null;
+        
+       
         
         public static Connection getConnection(){
             
@@ -38,4 +40,3 @@ public class DBConnectionPanchali {
         }
 
 }
-
