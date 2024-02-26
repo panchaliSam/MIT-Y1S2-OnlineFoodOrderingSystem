@@ -1,13 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package main.java.com.bs.interfaces;
 
 /**
  *
- * @author LENOVO
+ * @author Group4 - Chathumi
  */
+
+import java.util.ArrayList;
+import main.java.com.bs.model.Vehicle;
+
 public interface IVehicleDAO {
+    
+        ArrayList<Vehicle>selectAllVehicle(int vehicleId);
+    	ArrayList<Vehicle>selectVehicle(int vehicleId);
+	public boolean insertVehicle (Vehicle vehicle);
+	public boolean updateVehicle (Vehicle vehicle);
+	public boolean deleteVehicle (int vehicleId);
     
 }
