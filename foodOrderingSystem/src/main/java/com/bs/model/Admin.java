@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 /**
  *
- * @author User
+ * @author Group4 - Manditha
  */
 public class Admin extends Person {
     
@@ -20,6 +20,7 @@ public class Admin extends Person {
     private LocalDateTime registrationDate;
     private boolean isActive;
     
+    // parameteric constructor
     public Admin(int adminId, int ownerId, String firstName, String lastName, String email, String telNo, String role, String userName, String password, LocalDateTime registrationDate, boolean isActive){
         super(firstName,lastName,email,telNo);
         this.adminId = adminId;
@@ -31,6 +32,7 @@ public class Admin extends Person {
         this.isActive = isActive;
     }
     
+    // Getter and Setter for AdminId
     public int getAdminId(){
         return adminId;
     }
@@ -39,6 +41,7 @@ public class Admin extends Person {
         this.adminId = adminId;
     }
     
+    // Getter and Setter for OwnerId
     public int getOwnerId(){
         return ownerId;
     }
@@ -47,6 +50,7 @@ public class Admin extends Person {
         this.ownerId = ownerId;
     }
     
+    // Getter and Setter for Role
     public String getRole(){
         return role;
     }
@@ -55,6 +59,7 @@ public class Admin extends Person {
         this.role = role;
     }
     
+    // Getter and Setter for UserName
     public String getUserName(){
         return userName;
     }
@@ -63,6 +68,7 @@ public class Admin extends Person {
         this.userName = userName;
     }
     
+    // Getter and Setter for Password
     public String getPassword(){
         return password;
     }
@@ -71,6 +77,7 @@ public class Admin extends Person {
         this.password = password;
     }
     
+    // Getter and Setter for RegistrationDate
     public LocalDateTime getRegistrationDate(){
         return registrationDate;
     }
@@ -79,6 +86,7 @@ public class Admin extends Person {
         this.registrationDate = registrationDate;
     }
     
+    // Getter and Setter for IsActive
     public boolean getIsActive(){
         return isActive;
     }
