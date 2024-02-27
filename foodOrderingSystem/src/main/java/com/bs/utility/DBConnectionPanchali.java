@@ -13,7 +13,7 @@ public class DBConnectionPanchali {
         
         private static String url = "jdbc:mysql://localhost:3306/onlinefoodorderingsystem";
         private static String user = "root";
-        private static String password = " ";
+        private static String password = "*272617Ps*";
         
         //JDBC variable for opening, closing and managing connection
         private static Connection con = null;
@@ -36,6 +36,6 @@ public class DBConnectionPanchali {
             
             return con;
         }
-
+        
 }
 
