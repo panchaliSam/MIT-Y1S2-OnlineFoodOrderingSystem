@@ -13,7 +13,7 @@ public class DeliveryPerson extends Person {
 
 
     //Default Constructor
-    public DeliveryPerson() {
+    public DeliveryPerson () {
 
     }
 
