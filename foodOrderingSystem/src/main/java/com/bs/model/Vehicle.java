@@ -10,7 +10,7 @@ public class Vehicle {
     private int vehicleId;
     private String type;
     private String registrationNumber;
-    private int model;
+    private String model;
     private boolean isActive;
 
     
@@ -19,7 +19,7 @@ public class Vehicle {
     }
 
     // parameteric constructor
-    public Vehicle(int vehicleId,String type, String registrationNumber,String email,int model,boolean isActive) {
+    public Vehicle(int vehicleId,String type, String registrationNumber,String model,boolean isActive) {
         
         this.vehicleId = vehicleId;
         this.type = type;
@@ -56,10 +56,10 @@ public class Vehicle {
         this.registrationNumber = registrationNumber;
     }
     
-     public void getmodel(int model) {
-        this.model = model;
+     public String getmodel() {
+        return model;
     }
-    public void setmodel(int model) {
+    public void setmodel(String model) {
         this.model = model;
     }
 
@@ -84,7 +84,9 @@ public class Vehicle {
             
             '}';
     }
-     
+public static void main(String[] args) {
+       System.out.println("HHHHHH");
+    }
 }
 
 
