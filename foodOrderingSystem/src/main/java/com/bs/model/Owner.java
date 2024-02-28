@@ -22,6 +22,10 @@ public class Owner extends Person {
 
     }
 
+    public Owner(int returnOwnerId, String firstName, String lastName, String email, String telNo, String position, String password, boolean active, String activeStatus) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     // Getter and Setter for ownerId
     public int getOwner_Id() {
         return owner_Id;

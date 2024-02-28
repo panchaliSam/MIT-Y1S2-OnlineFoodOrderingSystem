@@ -28,6 +28,10 @@ public class Promotion {
         this.terms_and_conditions = terms_and_conditions;
     }
 
+    public Promotion(int returnPromotionId, int ownerId, int itemId, String discountPercentage, String description, String promotionPeriod, String termsAndConditions, boolean active) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     // Getter and Setter for promotion_Id
     public int getPromotion_Id() {
         return promotion_Id;
