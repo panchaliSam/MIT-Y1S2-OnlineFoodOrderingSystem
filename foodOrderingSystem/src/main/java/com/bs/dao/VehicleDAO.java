@@ -4,7 +4,7 @@ package main.java.com.bs.dao;
         
 /**
  *
- * @author Group-Chathumi 
+ * @author Group4-Chathumi 
  */
 
 import java.util.ArrayList;
@@ -89,8 +89,6 @@ public class VehicleDAO implements IVehicleDAO{
                 String model = rs.getString("model");
                 boolean isActive = rs.getBoolean("is_active");
                 
-                
-                //Vehicle vehicle = new Vehicle(returnVehicleId, type, registration_number, model, is_active);
                             
                 Vehicle vehicle = new Vehicle();
                      
