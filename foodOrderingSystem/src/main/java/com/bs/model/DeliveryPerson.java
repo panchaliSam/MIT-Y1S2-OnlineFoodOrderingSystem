@@ -1,15 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package main.java.com.bs.model;
 
 /**
  *
- * @author User
+ * @author Group4 - Nisala
  */
-public class DeliveryPerson extends Person{
-            private int DeliveryPersonId;
+
+public class DeliveryPerson extends Person {
+    
+    private int DeliveryPersonId;
     private boolean isActive;
     
 
@@ -20,7 +18,7 @@ public class DeliveryPerson extends Person{
     }
 
     //Parametric Constructor
-    public DeliveryPerson (int DeliveryPersonId, String firstName, String lastName, String email, String telNo, boolean isActive){
+    public DeliveryPerson(int DeliveryPersonId, String firstName, String lastName, String email, String telNo, boolean isActive){
         super(firstName, lastName, email, telNo);
         this.DeliveryPersonId = DeliveryPersonId;
         this.isActive = isActive;
@@ -47,7 +45,7 @@ public class DeliveryPerson extends Person{
     
     @Override
     public String toString() {
-        return "DeliveryPerson(" +
+        return "DeliveryPerson{" +
                 "DeliveryPersonId=" + DeliveryPersonId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
