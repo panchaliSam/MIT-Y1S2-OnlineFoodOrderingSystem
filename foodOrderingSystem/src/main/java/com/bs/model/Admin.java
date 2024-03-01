@@ -31,6 +31,11 @@ public class Admin extends Person {
         this.registrationDate = registrationDate;
         this.isActive = isActive;
     }
+
+    public Admin() {
+                
+
+    }
     
     // Getter and Setter for AdminId
     public int getAdminId(){

@@ -13,10 +13,10 @@ import main.java.com.bs.model.Admin;
  */
 public interface IAdminDAO {
     
-        ArrayList<Admin>selectAllCustomer(int adminId);
-    	ArrayList<Admin>selectCustomer(int adminId);
-	public boolean insertCustomer (Admin admin);
-	public boolean updateCustomer (Admin admin);
-	public boolean deleteCustomer (int adminId);
+        ArrayList<Admin>selectAllAdmin(int adminId);
+    	ArrayList<Admin>selectAdmin(int adminId);
+	public boolean insertAdmin (Admin admin);
+	public boolean updateAdmin (Admin admin);
+	public boolean deleteAdmin (int adminId);
         
 }
