@@ -13,7 +13,7 @@ public class DeliveryPerson extends Person {
 
 
     //Default Constructor
-    public DeliveryPerson () {
+    public DeliveryPerson (int returnDeliveryPersonId, String firstName1, String lastName1, String email1, String telNo1, boolean active, String activeStatus) {
 
     }
 
@@ -23,6 +23,10 @@ public class DeliveryPerson extends Person {
         this.DeliveryPersonId = DeliveryPersonId;
         this.isActive = isActive;
     
+    }
+
+    public DeliveryPerson() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     // Getter and Setter for DeliveryPersonID
@@ -59,5 +63,17 @@ public class DeliveryPerson extends Person {
     @Override
     public void myTask() {
         System.out.println("Delivery Person can select a vehicle and deliver the order.");
+    }
+
+    public void setIsActiveStatus(String activeStatus) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void setIsActive(boolean active) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void add(DeliveryPerson deliveryperson) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
