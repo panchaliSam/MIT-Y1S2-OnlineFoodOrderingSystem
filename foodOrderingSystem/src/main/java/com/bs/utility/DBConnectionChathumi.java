@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class DBConnectionChathumi {  
         
-        private static String url = "jdbc:mysql://localhost:3306/OnlineFoodOrederingSystem";
+        private static String url = "jdbc:mysql://localhost:3306/onlinefoodorderingsystem?zeroDateTimeBehavior=CONVERT_TO_NULL";
         private static String user = "root";
         private static String password = "2001chathu";
         
