@@ -48,7 +48,7 @@ public class AdminDAO implements IAdminDAO{
             
             while(rs.next()){
 
-                int returnAdminId = rs.getInt("customer_id");
+                int returnAdminId = rs.getInt("admin_id");
                 int ownerId = rs.getInt("owner_id");
                 String firstName = rs.getString("first_name");
                 String lastName = rs.getString("last_name");
@@ -89,7 +89,7 @@ public class AdminDAO implements IAdminDAO{
             
             while(rs.next()){
 
-                int returnAdminId = rs.getInt("customer_id");
+                int returnAdminId = rs.getInt("admin_id");
                 int ownerId = rs.getInt("owner_id");
                 String firstName = rs.getString("first_name");
                 String lastName = rs.getString("last_name");
