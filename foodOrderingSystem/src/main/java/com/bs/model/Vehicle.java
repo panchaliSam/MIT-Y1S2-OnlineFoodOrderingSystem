@@ -7,6 +7,7 @@ package main.java.com.bs.model;
  */
 public class Vehicle {
      //Attributes of Vehicle class
+    private int delpID;
     private int vehicleId;
     private String type;
     private String registrationNumber;
@@ -19,9 +20,10 @@ public class Vehicle {
     }
 
     // parameteric constructor
-    public Vehicle(int vehicleId,String type, String registrationNumber,String model,boolean isActive) {
+    public Vehicle(int vehicleId,int delpID,String type, String registrationNumber,String model,boolean isActive) {
         
         this.vehicleId = vehicleId;
+        this.delpID=delpID;
         this.type = type;
         this.registrationNumber = registrationNumber;
         this.model = model;
@@ -37,6 +39,13 @@ public class Vehicle {
 
     public void setvehicleId(int vehicleId) {
         this.vehicleId = vehicleId;
+    }
+     public int getdelpID() {
+        return delpID;
+    }
+
+   public void setdelpID(int delpID) {
+        this.delpID = delpID;
     }
 
     // Getter and Setter for type
@@ -77,6 +86,7 @@ public class Vehicle {
     public String toString() {
         return "vehicletest{" +
             "vehicleId=" + vehicleId +
+            "delpID=" + delpID +    
             ", type='" + type + '\'' +
             ", registrationNumber='" + registrationNumber + '\'' +
             ", model='" + model + '\'' +
@@ -84,6 +94,8 @@ public class Vehicle {
             
             '}';
     }
+
+    
 }
 
 

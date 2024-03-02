@@ -4,6 +4,8 @@
  */
 package main.java.com.bs.GUI;
 
+import main.java.com.bs.controller.VehicleController;
+
 /**
  *
  * @author LENOVO
@@ -68,6 +70,11 @@ public class VehicleUpdateGUI extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("UPDATE");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -143,9 +150,22 @@ public class VehicleUpdateGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    VehicleController controller =new VehicleController();
+    
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int vehID=Integer.parseInt(jTextField2.getText());
+        int delpID=Integer.parseInt(jTextField1.getText());
+        String type=jTextField3.getText();
+        String registration_number=jTextField4.getText();
+        String model=jTextField5.getText();
+        controller.updateVehicle(vehID,delpID,type,registration_number, model);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
