@@ -7,8 +7,7 @@ package main.java.com.bs.model;
 public class Promotion {
 
     private int promotion_Id;
-    private int owner_Id;
-    private int admin_Id;
+    private int item_Id;
     private String discount_percentage;
     private String description;
     private String promotion_period;
@@ -18,17 +17,20 @@ public class Promotion {
 
     }
 
-    public Promotion(int promotion_Id, int owner_Id, int admin_Id, String discount_percentage, String description, String promotion_period, String terms_and_conditions) {
+    public Promotion(int promotion_Id, int owner_Id, int item_Id, String discount_percentage, String description, String promotion_period, String terms_and_conditions) {
         this.promotion_Id = promotion_Id;
-        this.owner_Id = owner_Id;
-        this.admin_Id = admin_Id;
+        this.item_Id = item_Id;
         this.discount_percentage = discount_percentage;
         this.description = description;
         this.promotion_period = promotion_period;
         this.terms_and_conditions = terms_and_conditions;
     }
 
-    public Promotion(int returnPromotionId, int ownerId, int itemId, String discountPercentage, String description, String promotionPeriod, String termsAndConditions, boolean active) {
+    public Promotion(int returnPromotionId, int ownerId, int item_Id, String discountPercentage, String description, String promotionPeriod, String termsAndConditions, boolean active) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public Promotion(int returnPromotionId, int itemId, String discountPercentage, String description, String promotionPeriod, String termsAndConditions, boolean active) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -41,22 +43,16 @@ public class Promotion {
         this.promotion_Id = promotion_Id;
     }
 
-    // Getter and Setter for owner_Id
-    public int getOwner_Id() {
-        return owner_Id;
-    }
+    
 
-    public void setOwner_Id(int owner_Id) {
-        this.owner_Id = owner_Id;
-    }
 
     // Getter and Setter for admin_Id
-    public int getAdmin_Id() {
-        return admin_Id;
+    public int getItem_Id() {
+        return item_Id;
     }
 
-    public void setAdmin_Id(int admin_Id) {
-        this.admin_Id = admin_Id;
+    public void setItem_Id(int item_Id) {
+        this.item_Id = item_Id;
     }
 
     // Getter and Setter for Discount_percentage
@@ -99,8 +95,7 @@ public class Promotion {
     public String toString() {
         return "Owner{"
                 + "promotion_Id=" + promotion_Id
-                + ", owner_Id='" + owner_Id + '\''
-                + ", admin_Id='" + admin_Id + '\''
+                + ", item_Id='" + item_Id + '\''
                 + ", discount_percentage='" + discount_percentage + '\''
                 + ", description='" + description + '\''
                 + ", promotion_period='" + promotion_period + '\''
