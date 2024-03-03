@@ -3,11 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package main.java.com.bs.GUI;
+<<<<<<< HEAD
 import main.java.com.bs.controller.OwnerController;
 
 /**
  *
  * @author Manditha Madushanka
+=======
+
+/**
+ *
+ * @author User
+>>>>>>> 85f4f67c3ed0f9ef557d7c30194ce7e710165b20
  */
 public class OwnerUpdateGUI extends javax.swing.JFrame {
 
@@ -28,6 +35,7 @@ public class OwnerUpdateGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -226,20 +234,33 @@ public class OwnerUpdateGUI extends javax.swing.JFrame {
                     .addGap(10, 10, 10)))
         );
 
+=======
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+>>>>>>> 85f4f67c3ed0f9ef557d7c30194ce7e710165b20
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+=======
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+>>>>>>> 85f4f67c3ed0f9ef557d7c30194ce7e710165b20
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String fname = jTextField1.getText();
@@ -257,6 +278,8 @@ public class OwnerUpdateGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
+=======
+>>>>>>> 85f4f67c3ed0f9ef557d7c30194ce7e710165b20
     /**
      * @param args the command line arguments
      */
@@ -291,8 +314,11 @@ public class OwnerUpdateGUI extends javax.swing.JFrame {
             }
         });
     }
+    
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
@@ -314,5 +340,7 @@ public class OwnerUpdateGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+=======
+>>>>>>> 85f4f67c3ed0f9ef557d7c30194ce7e710165b20
     // End of variables declaration//GEN-END:variables
-}
+
