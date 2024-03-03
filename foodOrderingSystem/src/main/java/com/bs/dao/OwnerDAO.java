@@ -10,15 +10,15 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.IOwnerDAO;
 import main.java.com.bs.model.Owner;
-import main.java.com.bs.utility.DBConnectionPanchali;
+import main.java.com.bs.utility.DBConnectionImesh;
 
 public class OwnerDAO implements IOwnerDAO {
 
     private static final String SELECT_ALL_OWNERS = "SELECT owner_id ,first_name ,last_name ,email,tel_no,position,password,is_active"
             + "FROM owner";
 
-    private static final String SELECT_OWNER_BY_ID = "SELECT owner_id ,first_name ,last_name ,email,tel_no,position,password,is_active"
-            + "FROM owner"
+   private static final String SELECT_OWNER_BY_ID = "SELECT owner_id, first_name, last_name, email, tel_no, position, password, is_active "
+            + "FROM owner "
             + "WHERE owner_id = ?";
 
     private static final String INSERT_OWNER = "INSERT INTO owner(first_name ,last_name ,email,tel_no,position,password)"
@@ -34,7 +34,7 @@ public class OwnerDAO implements IOwnerDAO {
         ArrayList<Owner> owners = new ArrayList<>();
 
         try {
-            Connection con = DBConnectionPanchali.getConnection();
+            Connection con = DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_OWNERS);
             ResultSet rs = stmt.executeQuery();
 
@@ -47,8 +47,9 @@ public class OwnerDAO implements IOwnerDAO {
                 String telNo = rs.getString("tel_no");
                 String position = rs.getString("position");
                 String password = rs.getString("password");
+                boolean isActive = rs.getBoolean("is_active");
 
-                Owner owner = new Owner(returnOwnerId, firstName, lastName, email, telNo, position, password);
+                Owner owner = new Owner(returnOwnerId, firstName, lastName, email, telNo, position, password, isActive);
 
                 owners.add(owner);
 
@@ -72,7 +73,7 @@ public class OwnerDAO implements IOwnerDAO {
         ArrayList<Owner> owners = new ArrayList<>();
 
         try {
-            Connection con = DBConnectionPanchali.getConnection();
+            Connection con = DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_OWNER_BY_ID);
             stmt.setInt(1, owner_Id);
             ResultSet rs = stmt.executeQuery();
@@ -86,6 +87,8 @@ public class OwnerDAO implements IOwnerDAO {
                 String telNo = rs.getString("tel_no");
                 String position = rs.getString("position");
                 String password = rs.getString("password");
+                boolean isActive = rs.getBoolean("is_active");
+                
 
                 //Owner owner = new Owner(return OwnerId, firstName, lastName, email, telNo, position, password);
                 Owner owner = new Owner();
@@ -97,6 +100,7 @@ public class OwnerDAO implements IOwnerDAO {
                 owner.setTelNo(telNo);
                 owner.setPosition(position);
                 owner.setPassword(password);
+                owner.setIsActive(isActive);
 
                 owners.add(owner);
 
@@ -122,7 +126,7 @@ public class OwnerDAO implements IOwnerDAO {
 
         try {
 
-            Connection con = DBConnectionPanchali.getConnection();
+            Connection con = DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(INSERT_OWNER);
 
             stmt.setString(1, owner.getFirstName());
@@ -154,7 +158,7 @@ public class OwnerDAO implements IOwnerDAO {
 
         try {
 
-            Connection con = DBConnectionPanchali.getConnection();
+            Connection con = DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(UPDATE_OWNER);
 
             stmt.setString(1, owner.getFirstName());
@@ -187,7 +191,7 @@ public class OwnerDAO implements IOwnerDAO {
 
         try {
 
-            Connection con = DBConnectionPanchali.getConnection();
+            Connection con = DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(DELETE_OWNER);
 
             stmt.setInt(1, owner_Id);

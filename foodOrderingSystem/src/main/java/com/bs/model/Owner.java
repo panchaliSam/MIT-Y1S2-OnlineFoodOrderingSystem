@@ -9,22 +9,21 @@ public class Owner extends Person {
     private int owner_Id;
     private String position;
     private String password;
+    private boolean isActive;
 
     public Owner() {
 
     }
 
-    public Owner(int owner_Id, String firstName, String lastName, String email, String telNo, String position, String password) {
+    public Owner(int owner_Id, String firstName, String lastName, String email, String telNo, String position, String password, boolean isActive) {
         super(firstName, lastName, email, telNo);
         this.owner_Id = owner_Id;
         this.position = position;
         this.password = password;
+        this.isActive = isActive;
 
     }
 
-    public Owner(int returnOwnerId, String firstName, String lastName, String email, String telNo, String position, String password, boolean active, String activeStatus) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     // Getter and Setter for ownerId
     public int getOwner_Id() {
@@ -69,6 +68,7 @@ public class Owner extends Person {
                 + ", telNo='" + telNo + '\''
                 + ", position='" + position + '\''
                 + ", password='" + password + '\''
+                + ", isActive=" + isActive 
                 + '}';
     }
 
@@ -76,5 +76,15 @@ public class Owner extends Person {
     public void myTask() {
         System.out.println("Owner can see the menu");
     }
+    
+    public boolean getIsActive(){
+        return isActive;
+    }
+    
+    public void setIsActive(boolean isActive){
+        this.isActive = isActive;
+    }
+
+    
 
 }
