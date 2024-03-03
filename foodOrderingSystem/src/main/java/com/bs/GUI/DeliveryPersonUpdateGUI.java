@@ -4,6 +4,8 @@
  */
 package main.java.com.bs.GUI;
 
+import main.java.com.bs.controller.DeliveryPersonController;
+
 /**
  *
  * @author NISALA DINETH
@@ -69,6 +71,11 @@ public class DeliveryPersonUpdateGUI extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("UPDATE");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton5.setBackground(new java.awt.Color(51, 153, 0));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -160,8 +167,16 @@ public class DeliveryPersonUpdateGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    DeliveryPersonController deliveryperson = new DeliveryPersonController();
+    
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
+        int deliverypersonId = Integer.parseInt(jTextField1.getText());
+        String fname = jTextField2.getText();
+        String lname = jTextField3.getText();
+        String email = jTextField4.getText();
+        String telNo = jTextField5.getText();
+        deliveryperson.updateDeliveryPerson(deliverypersonId, fname, lname, email, telNo);
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -169,6 +184,11 @@ public class DeliveryPersonUpdateGUI extends javax.swing.JFrame {
         DeliveryPersonManage mgdp = new DeliveryPersonManage();
         mgdp.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
