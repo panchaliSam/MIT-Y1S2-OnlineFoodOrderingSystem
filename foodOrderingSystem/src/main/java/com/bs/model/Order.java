@@ -12,10 +12,6 @@ package main.java.com.bs.model;
 import java.time.LocalDateTime;
 
 public class Order {
-<<<<<<< HEAD
-    
-=======
->>>>>>> 85f4f67c3ed0f9ef557d7c30194ce7e710165b20
     
     private int orderId;
     private int customerId;

@@ -118,10 +118,7 @@ public class OwnerSelectGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 85f4f67c3ed0f9ef557d7c30194ce7e710165b20
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
