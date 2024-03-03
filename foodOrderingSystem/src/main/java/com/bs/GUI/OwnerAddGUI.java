@@ -223,7 +223,6 @@ public class OwnerAddGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -231,7 +230,7 @@ public class OwnerAddGUI extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
-=======
+
     
     OwnerController controller = new OwnerController();
     
@@ -249,7 +248,7 @@ public class OwnerAddGUI extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
->>>>>>> a0fbbc5f5fbcf40a8866f3a4c9f190bd656e7939
+
 
     /**
      * @param args the command line arguments
