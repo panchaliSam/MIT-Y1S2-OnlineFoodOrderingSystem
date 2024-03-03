@@ -45,8 +45,8 @@ CREATE TABLE owner (
 
 CREATE TABLE promotion (
 	promotion_id 			INT 			NOT NULL AUTO_INCREMENT,
+    item_id 				INT 			NOT NULL,
     owner_id 				INT 			NOT NULL,
-    admin_id 				INT 			NOT NULL,
     discount_percentage 	VARCHAR(3)		NOT NULL,
     description	 			VARCHAR(1000)	NOT NULL,
     promotion_period 		VARCHAR(100)	NOT NULL,
@@ -55,8 +55,7 @@ CREATE TABLE promotion (
     
     PRIMARY KEY (promotion_id),
     
-    CONSTRAINT fk1_promotion FOREIGN KEY(owner_id) REFERENCES owner(owner_id),
-    CONSTRAINT fk2_promotion  FOREIGN KEY(admin_id) REFERENCES admin(admin_id)
+    CONSTRAINT fk1_promotion FOREIGN KEY(owner_id) REFERENCES owner(owner_id)
 );
 
 CREATE TABLE vehicle(

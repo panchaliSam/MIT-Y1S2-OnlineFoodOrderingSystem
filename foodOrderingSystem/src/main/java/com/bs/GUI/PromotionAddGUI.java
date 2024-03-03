@@ -4,6 +4,8 @@
  */
 package main.java.com.bs.GUI;
 
+import main.java.com.bs.controller.PromotionController;
+
 /**
  *
  * @author CYBORG
@@ -163,12 +165,21 @@ public class PromotionAddGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    PromotionController controller = new PromotionController();
+    
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        int itemId=Integer.parseInt(jTextField1.getText());
+        String dPercentage = jTextField2.getText();
+        String description = jTextField3.getText();
+        String PPeriod = jTextField4.getText();
+        String tAndConditions = jTextField5.getText();
+        
+        controller.addPromotion(itemId, dPercentage, description, PPeriod, tAndConditions);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
