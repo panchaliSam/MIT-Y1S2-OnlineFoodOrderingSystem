@@ -151,7 +151,7 @@ public class DeliveryPersonAddGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    DeliveryPersonController controller = new DeliveryPersonController();
+    DeliveryPersonController deliveryperson = new DeliveryPersonController();
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.dispose();
@@ -217,16 +217,6 @@ public class DeliveryPersonAddGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
-
-    private static class deliveryperson {
-
-        private static void addDeliveryPerson(String fname, String lname, String email, String telNo) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-
-        public deliveryperson() {
-        }
-    }
 
    
 }
