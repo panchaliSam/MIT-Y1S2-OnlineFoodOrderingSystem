@@ -22,19 +22,19 @@ public class OrderDAO implements IOrderDAO {
     
     private static final String SELECT_ALL_ORDERS ="SELECT order_id, customer_id, order_date, "
                                                   + "rec_address, send_address, total_amount, order_status, is_active"
-                                                  + "FROM order";
+                                                  + "FROM orders";
     
     private static final String SELECT_ORDER_BY_ID = "SELECT order_id, customer_id, order_date, "
                                                    + "rec_address, send_address, total_amount, order_status, is_active"
-                                                   + "FROM order "
+                                                   + "FROM orders "
                                                    + "WHERE customer_id = ? AND order_id = ?";    
     
-    private static final String INSERT_ORDER = "INSERT INTO order(customer_id, rec_address, send_address, total_amount, order_status) "
+    private static final String INSERT_ORDER = "INSERT INTO orders(customer_id, rec_address, send_address, total_amount, order_status) "
                                              + "VALUES(?, ?, ?, ?, ?);";
     
-    private static final String UPDATE_ORDER = "UPDATE order SET rec_address = ?, send_address = ?, total_amount = ?, order_status = ? WHERE customer_id = ? AND order_id = ?";
+    private static final String UPDATE_ORDER = "UPDATE orders SET rec_address = ?, send_address = ?, total_amount = ?, order_status = ? WHERE customer_id = ? AND order_id = ?";
    
-    private static final String DELETE_ORDER = "DELETE FROM order WHERE customer_id = ? AND order_id = ?";
+    private static final String DELETE_ORDER = "DELETE FROM orders WHERE customer_id = ? AND order_id = ?";
 
     @Override
     public ArrayList<Order> selectAllOrders(int customerId) {
