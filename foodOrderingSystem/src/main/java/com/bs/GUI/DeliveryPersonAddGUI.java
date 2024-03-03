@@ -4,6 +4,8 @@
  */
 package main.java.com.bs.GUI;
 
+import main.java.com.bs.controller.DeliveryPersonController;
+
 /**
  *
  * @author NISALA DINETH
@@ -58,7 +60,12 @@ public class DeliveryPersonAddGUI extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(51, 153, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("UPDATE");
+        jButton1.setText("ADD");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(51, 153, 0));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -144,11 +151,22 @@ public class DeliveryPersonAddGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    DeliveryPersonController controller = new DeliveryPersonController();
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.dispose();
         DeliveryPersonManage mgdp = new DeliveryPersonManage();
         mgdp.setVisible(true); 
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String fname = jTextField1.getText();
+        String lname = jTextField2.getText();
+        String email = jTextField3.getText();
+        String telNo = jTextField4.getText();
+        deliveryperson.addDeliveryPerson(fname, lname, email, telNo);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,4 +217,16 @@ public class DeliveryPersonAddGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
+
+    private static class deliveryperson {
+
+        private static void addDeliveryPerson(String fname, String lname, String email, String telNo) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public deliveryperson() {
+        }
+    }
+
+   
 }
