@@ -4,6 +4,8 @@
  */
 package main.java.com.bs.GUI;
 
+import main.java.com.bs.controller.DeliveryPersonController;
+
 /**
  *
  * @author NISALA DINETH
@@ -165,8 +167,16 @@ public class DeliveryPersonUpdateGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    DeliveryPersonController deliveryperson = new DeliveryPersonController();
+    
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
+        int deliverypersonId = Integer.parseInt(jTextField1.getText());
+        String fname = jTextField2.getText();
+        String lname = jTextField3.getText();
+        String email = jTextField4.getText();
+        String telNo = jTextField5.getText();
+        deliveryperson.updateDeliveryPerson(deliverypersonId, fname, lname, email, telNo);
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -177,6 +187,10 @@ public class DeliveryPersonUpdateGUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
+=======
+        
+>>>>>>> f69c1c8fbd62ccf5873e4f20967824565f7677ec
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

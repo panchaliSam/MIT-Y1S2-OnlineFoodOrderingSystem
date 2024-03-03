@@ -33,9 +33,10 @@ public class PromotionController {
         promotionDAO.insertPromotion(promotion);
     }
     
-    public void updatePromotion(int promotionId, int itemId, String discountPercentage, String description, String promotionPeriod , String termsAndConditions){
+    public void updatePromotion(int promotionId, int itemId, int ownerId, String discountPercentage, String description, String promotionPeriod , String termsAndConditions){
         Promotion promotion = new Promotion();
         promotion.setItem_Id(itemId);
+        promotion.setOwner_Id(ownerId);
         promotion.setDiscount_percentage(discountPercentage);
         promotion.setDescription(description);
         promotion.setPromotion_period(promotionPeriod);

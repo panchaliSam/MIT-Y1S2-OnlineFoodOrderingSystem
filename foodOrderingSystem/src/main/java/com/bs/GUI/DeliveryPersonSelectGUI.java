@@ -4,6 +4,8 @@
  */
 package main.java.com.bs.GUI;
 
+import main.java.com.bs.controller.DeliveryPersonController;
+
 /**
  *
  * @author NISALA DINETH
@@ -117,6 +119,8 @@ public class DeliveryPersonSelectGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    DeliveryPersonController deliveryperson = new DeliveryPersonController();
+    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.dispose();
         DeliveryPersonManage mgdp = new DeliveryPersonManage();
@@ -125,6 +129,11 @@ public class DeliveryPersonSelectGUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
+=======
+        int id = Integer.parseInt(jTextField1.getText());
+        deliveryperson.selectDeliveryPerson(id);
+>>>>>>> f69c1c8fbd62ccf5873e4f20967824565f7677ec
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
