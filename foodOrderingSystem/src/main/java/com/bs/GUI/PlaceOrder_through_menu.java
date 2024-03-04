@@ -134,6 +134,7 @@ public class PlaceOrder_through_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         MakePayment payment = new MakePayment();
         payment.setVisible(true);
         this.dispose();
