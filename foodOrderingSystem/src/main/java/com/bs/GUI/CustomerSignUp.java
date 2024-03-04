@@ -4,18 +4,19 @@
  */
 package main.java.com.bs.GUI;
 
+import javax.swing.JOptionPane;
 import main.java.com.bs.controller.CustomerController;
 
 /**
  *
  * @author User
  */
-public class CustomerAddGUI extends javax.swing.JFrame {
+public class CustomerSignUp extends javax.swing.JFrame {
 
     /**
      * Creates new form CustomerGUI
      */
-    public CustomerAddGUI() {
+    public CustomerSignUp() {
         initComponents();
     }
 
@@ -57,7 +58,7 @@ public class CustomerAddGUI extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 51));
-        jLabel1.setText("CUSTOMER ADD ");
+        jLabel1.setText("CUSTOMER SIGN UP");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("First Name");
@@ -80,7 +81,7 @@ public class CustomerAddGUI extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 153, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("ADD");
+        jButton1.setText("SIGN UP");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -208,6 +209,10 @@ public class CustomerAddGUI extends javax.swing.JFrame {
         String username = jTextField5.getText();
         String password = new String(jPasswordField1.getPassword());
         controller.addCustomer(fname, lname, email, telNo, username, password);
+        JOptionPane.showMessageDialog(this, "You have sign up successfully.You can log now!");
+        CustomerHomePage cushp = new CustomerHomePage();
+        cushp.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -216,8 +221,8 @@ public class CustomerAddGUI extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.dispose();
-        CustomerManage mgcus = new CustomerManage();
-        mgcus.setVisible(true);
+        CustomerHomePage cushp = new CustomerHomePage();
+        cushp.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -237,21 +242,23 @@ public class CustomerAddGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CustomerAddGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CustomerAddGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CustomerAddGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CustomerAddGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CustomerAddGUI().setVisible(true);
+                new CustomerSignUp().setVisible(true);
             }
         });
     }

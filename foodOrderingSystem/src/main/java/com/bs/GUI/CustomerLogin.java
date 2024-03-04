@@ -14,12 +14,12 @@ import main.java.com.bs.utility.DBConnectionManditha;
  *
  * @author Manditha Madushanka
  */
-public class AdminLogin extends javax.swing.JFrame {
+public class CustomerLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form AdminLogin
      */
-    public AdminLogin() {
+    public CustomerLogin() {
         initComponents();
     }
 
@@ -49,8 +49,8 @@ public class AdminLogin extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 153, 0));
-        jLabel1.setText("ADMIN LOGIN");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 218, -1, -1));
+        jLabel1.setText("CUSTOMER LOGIN");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel2.setText("Username");
@@ -115,8 +115,8 @@ public class AdminLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        LoginForAdminOrOwner login = new LoginForAdminOrOwner();
-        login.setVisible(true);
+        CustomerHomePage cushp = new CustomerHomePage();
+        cushp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -130,16 +130,16 @@ public class AdminLogin extends javax.swing.JFrame {
             
             Statement stm = con.createStatement();
             
-            String sql = "SELECT * FROM admin WHERE user_name='"+username+"' AND password='"+password+"'";
+            String sql = "SELECT * FROM customer WHERE user_name='"+username+"' AND password='"+password+"'";
             
             ResultSet rs = stm.executeQuery(sql);
             
             if(rs.next()){
                 
-                JOptionPane.showMessageDialog(this, "Your login is successful!");
-                HomepageAfterLogin homepage = new HomepageAfterLogin();
-                homepage.setVisible(true);
-                dispose();
+                JOptionPane.showMessageDialog(this, "Your login is successful.You can see the menu and place order!");
+                CustomerHomePageAfterLogin cushpal = new CustomerHomePageAfterLogin();
+                cushpal.setVisible(true);
+                this.dispose();
                 
             }
             
@@ -179,20 +179,21 @@ public class AdminLogin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminLogin().setVisible(true);
+                new CustomerLogin().setVisible(true);
             }
         });
     }

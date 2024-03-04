@@ -46,7 +46,7 @@ public class DeliveryPersonController {
         deliverypersonDAO.deleteDeliveryPerson(id);
     }
     
-    public void selevtDeliveryPerson (int id) {
+    public void selectDeliveryPerson (int id) {
         deliverypersonDAO.selectDeliveryPerson(id);
     }
     
