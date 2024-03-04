@@ -169,6 +169,7 @@ public class VehicleAddGUI extends javax.swing.JFrame {
         String type=jTextField3.getText();
         String registration_number=jTextField4.getText();
         String model=jTextField5.getText();
+
         controller.addVehicle(delpID,type,registration_number, model);
     }//GEN-LAST:event_jButton1ActionPerformed
 

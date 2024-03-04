@@ -4,6 +4,7 @@
  */
 package main.java.com.bs.GUI;
 
+import javax.swing.JOptionPane;
 import main.java.com.bs.controller.ChefController;
 
 /**
@@ -200,6 +201,50 @@ ChefController chef=new  ChefController();
         String telNo = jTextField4.getText();
         String specialiation = jTextField5.getText();
         String shift = jTextField6.getText();
+        
+        if (fname.isEmpty() || lname.isEmpty() || email.isEmpty() || telNo.isEmpty() || specialiation.isEmpty() || shift.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "All fields are required.");
+        return;
+    }    
+        
+    
+        if (!isValidName(fname)) {
+            JOptionPane.showMessageDialog(this, "First name cannot contain numerical values.");
+            jTextField1.setText(""); // Reset the JTextField
+            return;
+        }
+
+        if (!isValidName(lname)) {
+            JOptionPane.showMessageDialog(this, "Last name cannot contain numerical values.");
+            jTextField2.setText(""); // Reset the JTextField
+            return;
+        }
+
+        if (!isValidEmail(email)) {
+            JOptionPane.showMessageDialog(this, "Invalid email format.");
+            jTextField3.setText(""); // Reset the JTextField
+            return;
+        }
+
+        if (!isValidTelNo(telNo)) {
+            JOptionPane.showMessageDialog(this, "Telephone number should contain 10 digits.");
+            jTextField4.setText(""); // Reset the JTextField
+            return;
+        }
+    
+        if (!isValidSpecialization(specialiation)) {
+            JOptionPane.showMessageDialog(this, "Specialization cannot contain numerical values.");
+            jTextField5.setText(""); // Reset the JTextField
+            return;
+        }
+
+        if (!isValidShift(shift)) {
+            JOptionPane.showMessageDialog(this, "Shift cannot contain numerical values.");
+            jTextField6.setText(""); // Reset the JTextField
+            return;
+        }
+        
+
         chef.addChef(fname, lname, email, telNo, specialiation, shift);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -237,6 +282,28 @@ ChefController chef=new  ChefController();
             }
         });
     }
+    
+    private boolean isValidName(String name) {
+        return !name.matches(".*\\d.*");
+    }
+
+    private boolean isValidEmail(String email) {
+        return email.contains("@");
+    }
+
+    private boolean isValidTelNo(String telNo) {
+        return telNo.matches("\\d{10}");
+    }
+
+    private boolean isValidSpecialization(String specialization) {
+        return !specialization.matches(".*\\d.*");
+    }
+
+    private boolean isValidShift(String shift) {
+        return !shift.matches(".*\\d.*");
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.IDeliveryPersonDAO;
 import main.java.com.bs.model.DeliveryPerson;
-import main.java.com.bs.utility.DBConnectionNisala;
+import main.java.com.bs.utility.DBConnectionImesh;
 
 /**
  *
@@ -37,7 +37,7 @@ public class DeliveryPersonDAO implements IDeliveryPersonDAO {
         ArrayList<DeliveryPerson> deliverypersons = new ArrayList<>();
         
         try{
-            Connection con = DBConnectionNisala.getConnection();
+            Connection con = DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_DELIVERYPERSONS);
             ResultSet rs = stmt.executeQuery();
             
@@ -78,7 +78,7 @@ public class DeliveryPersonDAO implements IDeliveryPersonDAO {
         ArrayList<DeliveryPerson> deliverypersons = new ArrayList<>();
         
         try{
-            Connection con = DBConnectionNisala.getConnection();
+            Connection con = DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_DELIVERYPERSON_BY_ID);
             stmt.setInt(1, deliverypersonId);
             ResultSet rs = stmt.executeQuery();
@@ -127,7 +127,7 @@ public class DeliveryPersonDAO implements IDeliveryPersonDAO {
       
       try{
           
-          Connection con = DBConnectionNisala.getConnection();
+          Connection con = DBConnectionImesh.getConnection();
           PreparedStatement stmt = con.prepareStatement(INSERT_DELIVERYPERSON);
           
           stmt.setString(1, deliveryperson.getFirstName()); 
@@ -157,7 +157,7 @@ public class DeliveryPersonDAO implements IDeliveryPersonDAO {
       
       try{
           
-          Connection con = DBConnectionNisala.getConnection();
+          Connection con = DBConnectionImesh.getConnection();
           PreparedStatement stmt = con.prepareStatement(UPDATE_DELIVERYPERSON);
           
           stmt.setString(1, deliveryperson.getFirstName());
@@ -189,7 +189,7 @@ public class DeliveryPersonDAO implements IDeliveryPersonDAO {
         
         try{
             
-            Connection con =  DBConnectionNisala.getConnection();
+            Connection con =  DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(DELETE_DELIVERYPERSON);
             
             stmt.setInt(1, deliverypersonId);

@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.IChefDAO;
 import main.java.com.bs.model.Chef;
-import main.java.com.bs.utility.DBConnectionChathumi;
+import main.java.com.bs.utility.DBConnectionImesh;
 
 /**
  *
@@ -41,7 +41,7 @@ public class ChefDAO implements IChefDAO{
         ArrayList<Chef> chefs = new ArrayList<>();
         
         try{
-            Connection con = DBConnectionChathumi.getConnection();
+            Connection con = DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_CHEFS);
             ResultSet rs = stmt.executeQuery();
             
@@ -78,7 +78,7 @@ public class ChefDAO implements IChefDAO{
         ArrayList<Chef> chefs = new ArrayList<>();
         
         try{
-            Connection con = DBConnectionChathumi.getConnection();
+            Connection con = DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_CHEF_BY_ID);
             stmt.setInt(1, chefId);
             ResultSet rs = stmt.executeQuery();
@@ -131,7 +131,7 @@ public class ChefDAO implements IChefDAO{
         
         try{
           
-          Connection con = DBConnectionChathumi.getConnection();
+          Connection con = DBConnectionImesh.getConnection();
           PreparedStatement stmt = con.prepareStatement(INSERT_CHEF);
           
           stmt.setString(1, chef.getFirstName()); 
@@ -162,7 +162,7 @@ public class ChefDAO implements IChefDAO{
         
         try{
           
-          Connection con = DBConnectionChathumi.getConnection();
+          Connection con = DBConnectionImesh.getConnection();
           PreparedStatement stmt = con.prepareStatement(UPDATE_CHEF);
           
           stmt.setString(1, chef.getFirstName()); 
@@ -196,7 +196,7 @@ public class ChefDAO implements IChefDAO{
         
         try{
             
-            Connection con =  DBConnectionChathumi.getConnection();
+            Connection con =  DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(DELETE_CHEF);
             
             stmt.setInt(1, chefId);

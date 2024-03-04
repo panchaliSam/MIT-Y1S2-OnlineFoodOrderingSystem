@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.ICustomerDAO;
 import main.java.com.bs.model.Customer;
-import main.java.com.bs.utility.DBConnectionManditha;
+import main.java.com.bs.utility.DBConnectionImesh;
 
 public class CustomerDAO implements ICustomerDAO{
     
@@ -40,7 +40,7 @@ public class CustomerDAO implements ICustomerDAO{
         ArrayList<Customer> customers = new ArrayList<>();
         
         try{
-            Connection con = DBConnectionManditha.getConnection();
+            Connection con = DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_CUSTOMERS);
             ResultSet rs = stmt.executeQuery();
             
@@ -83,7 +83,7 @@ public class CustomerDAO implements ICustomerDAO{
         ArrayList<Customer> customers = new ArrayList<>();
         
         try{
-            Connection con = DBConnectionManditha.getConnection();
+            Connection con = DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_CUSTOMER_BY_ID);
             stmt.setInt(1, customerId);
             ResultSet rs = stmt.executeQuery();
@@ -138,7 +138,7 @@ public class CustomerDAO implements ICustomerDAO{
       
       try{
           
-          Connection con = DBConnectionManditha.getConnection();
+          Connection con = DBConnectionImesh.getConnection();
           PreparedStatement stmt = con.prepareStatement(INSERT_CUSTOMER);
           
           stmt.setString(1, customer.getFirstName()); 
@@ -170,7 +170,7 @@ public class CustomerDAO implements ICustomerDAO{
       
       try{
           
-          Connection con = DBConnectionManditha.getConnection();
+          Connection con = DBConnectionImesh.getConnection();
           PreparedStatement stmt = con.prepareStatement(UPDATE_CUSTOMER);
           
           stmt.setString(1, customer.getFirstName());
@@ -204,7 +204,7 @@ public class CustomerDAO implements ICustomerDAO{
         
         try{
             
-            Connection con =  DBConnectionManditha.getConnection();
+            Connection con =  DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(DELETE_CUSTOMER);
             
             stmt.setInt(1, customerId);

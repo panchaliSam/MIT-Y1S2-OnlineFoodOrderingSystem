@@ -4,6 +4,7 @@
  */
 package main.java.com.bs.GUI;
 
+import javax.swing.JOptionPane;
 import main.java.com.bs.controller.DeliveryPersonController;
 
 /**
@@ -164,6 +165,41 @@ public class DeliveryPersonAddGUI extends javax.swing.JFrame {
         String lname = jTextField2.getText();
         String email = jTextField3.getText();
         String telNo = jTextField4.getText();
+        
+        
+        if (fname.isEmpty() || lname.isEmpty() || email.isEmpty() || telNo.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "All fields are required.");
+            return;
+        }
+
+        
+        if (!isValidName(fname)) {
+            JOptionPane.showMessageDialog(this, "First name cannot contain numerical values.");
+            jTextField1.setText(""); 
+            return;
+        }
+
+        
+        if (!isValidName(lname)) {
+            JOptionPane.showMessageDialog(this, "Last name cannot contain numerical values.");
+            jTextField2.setText(""); 
+            return;
+        }
+
+        
+        if (!isValidEmail(email)) {
+            JOptionPane.showMessageDialog(this, "Invalid email format.");
+            jTextField3.setText(""); 
+            return;
+        }
+
+        
+        if (!isValidTelNo(telNo)) {
+            JOptionPane.showMessageDialog(this, "Telephone number should contain exactly 10 digits.");
+            jTextField4.setText(""); 
+            return;
+        }
+ 
         deliveryperson.addDeliveryPerson(fname, lname, email, telNo);
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -202,6 +238,19 @@ public class DeliveryPersonAddGUI extends javax.swing.JFrame {
             }
         });
     }
+    
+    private boolean isValidName(String name) {
+        return name.matches("[a-zA-Z]+");
+    }
+
+    private boolean isValidEmail(String email) {
+        return email.contains("@");
+    }
+
+    private boolean isValidTelNo(String telNo) {
+        return telNo.matches("\\d{10}");
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

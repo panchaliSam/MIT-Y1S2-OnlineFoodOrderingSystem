@@ -10,7 +10,7 @@ package main.java.com.bs.dao;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.IVehicleDAO;
 import main.java.com.bs.model.Vehicle;
-import main.java.com.bs.utility.DBConnectionChathumi;
+import main.java.com.bs.utility.DBConnectionImesh;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet; 
@@ -39,7 +39,7 @@ public class VehicleDAO implements IVehicleDAO{
         ArrayList<Vehicle> vehicles = new ArrayList<>();
         
         try{
-            Connection con = DBConnectionChathumi.getConnection();
+            Connection con = DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_VEHICLES);
             ResultSet rs = stmt.executeQuery();
             
@@ -76,7 +76,7 @@ public class VehicleDAO implements IVehicleDAO{
         
         Vehicle vehicle = new Vehicle();
         try{
-            Connection con = DBConnectionChathumi.getConnection();
+            Connection con = DBConnectionImesh.getConnection();
            // System.out.println(con);
             PreparedStatement stmt = con.prepareStatement(SELECT_VEHICLE_BY_ID);
             stmt.setInt(1, vehicleId);
@@ -128,7 +128,7 @@ public class VehicleDAO implements IVehicleDAO{
       
       try{
           
-          Connection con = DBConnectionChathumi.getConnection();
+          Connection con = DBConnectionImesh.getConnection();
           PreparedStatement stmt = con.prepareStatement(INSERT_VEHICLE);
           
           stmt.setInt(1, vehicle.getdelpID());
@@ -157,7 +157,7 @@ public class VehicleDAO implements IVehicleDAO{
       
       try{
           
-          Connection con = DBConnectionChathumi.getConnection();
+          Connection con = DBConnectionImesh.getConnection();
           PreparedStatement stmt = con.prepareStatement(UPDATE_VEHICLE);
           
           stmt.setInt(1, vehicle.getdelpID());
@@ -188,7 +188,7 @@ public class VehicleDAO implements IVehicleDAO{
         
         try{
             
-            Connection con =  DBConnectionChathumi.getConnection();
+            Connection con =  DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(DELETE_VEHICLE);
             
             stmt.setInt(1, vehicleId);
