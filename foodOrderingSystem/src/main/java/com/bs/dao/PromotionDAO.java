@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.IPromotionDAO;
 import main.java.com.bs.model.Promotion;
-import main.java.com.bs.utility.DBConnectionImesh;
+import main.java.com.bs.utility.DBConnectionManditha;
 
 public class PromotionDAO implements IPromotionDAO {
 
@@ -37,7 +37,7 @@ public class PromotionDAO implements IPromotionDAO {
         ArrayList<Promotion> promotions = new ArrayList<>();
 
         try {
-            Connection con = DBConnectionImesh.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_PROMOTIONS);
             ResultSet rs = stmt.executeQuery();
 
@@ -73,7 +73,7 @@ public class PromotionDAO implements IPromotionDAO {
         ArrayList<Promotion> promotions = new ArrayList<>();
 
         try {
-            Connection con = DBConnectionImesh.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_PROMOTION_BY_ID);
             stmt.setInt(1, promotionId);
             ResultSet rs = stmt.executeQuery();
@@ -121,7 +121,7 @@ public class PromotionDAO implements IPromotionDAO {
 
         try {
 
-            Connection con = DBConnectionImesh.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(INSERT_PROMOTION);
 
             
@@ -151,7 +151,7 @@ public class PromotionDAO implements IPromotionDAO {
 
         try {
 
-            Connection con = DBConnectionImesh.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(UPDATE_PROMOTION);
 
             stmt.setInt(1, promotion.getItem_Id());
@@ -181,7 +181,7 @@ public class PromotionDAO implements IPromotionDAO {
 
         try {
 
-            Connection con = DBConnectionImesh.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(DELETE_PROMOTION);
 
             stmt.setInt(1, promotionId);

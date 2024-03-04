@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.IDeliveryPersonDAO;
 import main.java.com.bs.model.DeliveryPerson;
-import main.java.com.bs.utility.DBConnectionNisala;
+import main.java.com.bs.utility.DBConnectionManditha;
 
 /**
  *
@@ -15,21 +15,21 @@ import main.java.com.bs.utility.DBConnectionNisala;
 
 public class DeliveryPersonDAO implements IDeliveryPersonDAO {
     
-   private static final String SELECT_ALL_DELIVERYPERSONS = "SELECT deliveryperson_id, first_name, last_name, email, tel_no, "
+   private static final String SELECT_ALL_DELIVERYPERSONS = "SELECT delivery_person_id, first_name, last_name, email, tel_no, "
                                                     + "is_active "
-                                                    + "FROM deliveryperson";
+                                                    + "FROM delivery_person";
    
-   private static final String SELECT_DELIVERYPERSON_BY_ID = "SELECT deliveryperson_id, first_name, last_name, email, tel_no, "
+   private static final String SELECT_DELIVERYPERSON_BY_ID = "SELECT delivery_person_id, first_name, last_name, email, tel_no, "
                                                     + "is_active "
-                                                    + "FROM deliveryperson "
-                                                    + "WHERE deliveryperson_id = ?";
+                                                    + "FROM delivery_person "
+                                                    + "WHERE delivery_person_id = ?";
 
-   private static final String INSERT_DELIVERYPERSON = "INSERT INTO deliveryperson(first_name, last_name, email, tel_no) "
+   private static final String INSERT_DELIVERYPERSON = "INSERT INTO delivery_person(first_name, last_name, email, tel_no) "
                                             + "VALUES(?, ?, ?, ?);";
    
-   private static final String UPDATE_DELIVERYPERSON = "UPDATE deliveryperson SET first_name = ?, last_name = ?, email = ?, tel_no = ? WHERE deliveryperson_id = ?";
+   private static final String UPDATE_DELIVERYPERSON = "UPDATE delivery_person SET first_name = ?, last_name = ?, email = ?, tel_no = ? WHERE delivery_person_id = ?";
    
-   private static final String DELETE_DELIVERYPERSON = "DELETE FROM deliveryperson WHERE deliveryperson_id = ?";
+   private static final String DELETE_DELIVERYPERSON = "DELETE FROM delivery_person WHERE delivery_person_id = ?";
 
     @Override
     public ArrayList<DeliveryPerson> selectAllDeliveryPerson(int deliverypersonId) {
@@ -37,13 +37,13 @@ public class DeliveryPersonDAO implements IDeliveryPersonDAO {
         ArrayList<DeliveryPerson> deliverypersons = new ArrayList<>();
         
         try{
-            Connection con = DBConnectionNisala.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_DELIVERYPERSONS);
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
 
-                int returnDeliveryPersonId = rs.getInt("deliveryperson_id");
+                int returnDeliveryPersonId = rs.getInt("delivery_person_id");
                 String firstName = rs.getString("first_name");
                 String lastName = rs.getString("last_name");
                 String email = rs.getString("email");
@@ -78,14 +78,14 @@ public class DeliveryPersonDAO implements IDeliveryPersonDAO {
         ArrayList<DeliveryPerson> deliverypersons = new ArrayList<>();
         
         try{
-            Connection con = DBConnectionNisala.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_DELIVERYPERSON_BY_ID);
             stmt.setInt(1, deliverypersonId);
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
 
-                int returnDeliveryPersonId = rs.getInt("deliveryperson_id");
+                int returnDeliveryPersonId = rs.getInt("delivery_person_id");
                 String firstName = rs.getString("first_name");
                 String lastName = rs.getString("last_name");
                 String email = rs.getString("email");
@@ -127,7 +127,7 @@ public class DeliveryPersonDAO implements IDeliveryPersonDAO {
       
       try{
           
-          Connection con = DBConnectionNisala.getConnection();
+          Connection con = DBConnectionManditha.getConnection();
           PreparedStatement stmt = con.prepareStatement(INSERT_DELIVERYPERSON);
           
           stmt.setString(1, deliveryperson.getFirstName()); 
@@ -157,7 +157,7 @@ public class DeliveryPersonDAO implements IDeliveryPersonDAO {
       
       try{
           
-          Connection con = DBConnectionNisala.getConnection();
+          Connection con = DBConnectionManditha.getConnection();
           PreparedStatement stmt = con.prepareStatement(UPDATE_DELIVERYPERSON);
           
           stmt.setString(1, deliveryperson.getFirstName());
@@ -189,7 +189,7 @@ public class DeliveryPersonDAO implements IDeliveryPersonDAO {
         
         try{
             
-            Connection con =  DBConnectionNisala.getConnection();
+            Connection con =  DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(DELETE_DELIVERYPERSON);
             
             stmt.setInt(1, deliverypersonId);

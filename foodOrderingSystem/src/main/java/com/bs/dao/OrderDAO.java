@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.IOrderDAO;
 import main.java.com.bs.model.Order;
-import main.java.com.bs.utility.DBConnectionPanchali;
+import main.java.com.bs.utility.DBConnectionManditha;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -43,7 +43,7 @@ private static final String SELECT_ORDER_BY_ID = "SELECT order_id, customer_id, 
         ArrayList<Order> orders = new ArrayList<>();
         
         try{
-            Connection con = DBConnectionPanchali.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_ORDERS);
             ResultSet rs = stmt.executeQuery();
             
@@ -80,7 +80,7 @@ private static final String SELECT_ORDER_BY_ID = "SELECT order_id, customer_id, 
         ArrayList<Order> orders = new ArrayList<>();
         
         try{
-            Connection con = DBConnectionPanchali.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ORDER_BY_ID);
             stmt.setInt(1, orderId);
             ResultSet rs = stmt.executeQuery();
@@ -130,7 +130,7 @@ private static final String SELECT_ORDER_BY_ID = "SELECT order_id, customer_id, 
         
         try{
             
-            Connection con = DBConnectionPanchali.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(INSERT_ORDER);
             
             stmt.setInt(1, order.getCustomerId());
@@ -158,7 +158,7 @@ private static final String SELECT_ORDER_BY_ID = "SELECT order_id, customer_id, 
         
         try{
             
-            Connection con = DBConnectionPanchali.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(UPDATE_ORDER);
             
             
@@ -188,7 +188,7 @@ private static final String SELECT_ORDER_BY_ID = "SELECT order_id, customer_id, 
         boolean rowDelete = false; 
         
         try{
-            Connection con =  DBConnectionPanchali.getConnection();
+            Connection con =  DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(DELETE_ORDER);
             
             stmt.setInt(1, orderId);

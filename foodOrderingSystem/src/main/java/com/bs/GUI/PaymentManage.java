@@ -90,7 +90,7 @@ public class PaymentManage extends javax.swing.JFrame {
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 650, 100, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/com/bs/UIimages/WhatsApp Image 2024-03-03 at 09.32.18_31f6a5f9.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/com/bs/UIimages/WhatsApp Image 2024-03-03 at 09.36.23_f6718c6c.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 750));
 

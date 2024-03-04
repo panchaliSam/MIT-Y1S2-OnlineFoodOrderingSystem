@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.IOwnerDAO;
 import main.java.com.bs.model.Owner;
-import main.java.com.bs.utility.DBConnectionImesh;
+import main.java.com.bs.utility.DBConnectionManditha;
 
 public class OwnerDAO implements IOwnerDAO {
 
@@ -34,7 +34,7 @@ public class OwnerDAO implements IOwnerDAO {
         ArrayList<Owner> owners = new ArrayList<>();
 
         try {
-            Connection con = DBConnectionImesh.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_OWNERS);
             ResultSet rs = stmt.executeQuery();
 
@@ -73,7 +73,7 @@ public class OwnerDAO implements IOwnerDAO {
         ArrayList<Owner> owners = new ArrayList<>();
 
         try {
-            Connection con = DBConnectionImesh.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_OWNER_BY_ID);
             stmt.setInt(1, owner_Id);
             ResultSet rs = stmt.executeQuery();
@@ -126,7 +126,7 @@ public class OwnerDAO implements IOwnerDAO {
 
         try {
 
-            Connection con = DBConnectionImesh.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(INSERT_OWNER);
 
             stmt.setString(1, owner.getFirstName());
@@ -158,7 +158,7 @@ public class OwnerDAO implements IOwnerDAO {
 
         try {
 
-            Connection con = DBConnectionImesh.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(UPDATE_OWNER);
 
             stmt.setString(1, owner.getFirstName());
@@ -191,7 +191,7 @@ public class OwnerDAO implements IOwnerDAO {
 
         try {
 
-            Connection con = DBConnectionImesh.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(DELETE_OWNER);
 
             stmt.setInt(1, owner_Id);
