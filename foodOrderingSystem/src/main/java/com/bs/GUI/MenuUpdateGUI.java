@@ -4,6 +4,8 @@
  */
 package main.java.com.bs.GUI;
 
+import main.java.com.bs.controller.MenuController;
+
 /**
  *
  * @author miyug
@@ -63,6 +65,11 @@ public class MenuUpdateGUI extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("UPDATE");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(51, 153, 0));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -157,6 +164,17 @@ public class MenuUpdateGUI extends javax.swing.JFrame {
         MenuManage mmanage = new MenuManage();
         mmanage.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    MenuController controller =  new MenuController();
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int itemId = Integer.parseInt(jTextField1.getText());
+        String menuName = jTextField2.getText();
+        String description = jTextField3.getText();
+        double price = Double.parseDouble(jTextField4.getText());
+        String category = jTextField5.getText();
+        controller.updateMenu(itemId, menuName, description, price, category);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

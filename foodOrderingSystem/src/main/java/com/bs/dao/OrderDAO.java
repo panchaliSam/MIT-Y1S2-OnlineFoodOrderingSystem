@@ -21,23 +21,24 @@ import java.sql.ResultSet;
 public class OrderDAO implements IOrderDAO {
     
     private static final String SELECT_ALL_ORDERS ="SELECT order_id, customer_id, order_date, "
-                                                  + "rec_address, send_address, total_amount, order_status, is_active"
+                                                  + "rec_address, send_address, total_amount, order_status, is_active "
                                                   + "FROM orders";
     
-    private static final String SELECT_ORDER_BY_ID = "SELECT order_id, customer_id, order_date, "
-                                                   + "rec_address, send_address, total_amount, order_status, is_active"
+private static final String SELECT_ORDER_BY_ID = "SELECT order_id, customer_id, order_date, "
+                                                   + "rec_address, send_address, total_amount, order_status, is_active "
                                                    + "FROM orders "
-                                                   + "WHERE customer_id = ? AND order_id = ?";    
+                                                   + "WHERE order_id = ?";
+  
     
     private static final String INSERT_ORDER = "INSERT INTO orders(customer_id, rec_address, send_address, total_amount, order_status) "
                                              + "VALUES(?, ?, ?, ?, ?);";
     
     private static final String UPDATE_ORDER = "UPDATE orders SET rec_address = ?, send_address = ?, total_amount = ?, order_status = ? WHERE customer_id = ? AND order_id = ?";
    
-    private static final String DELETE_ORDER = "DELETE FROM orders WHERE customer_id = ? AND order_id = ?";
+    private static final String DELETE_ORDER = "DELETE FROM orders WHERE order_id = ?";
 
     @Override
-    public ArrayList<Order> selectAllOrders(int customerId) {
+    public ArrayList<Order> selectAllOrders(int orderId) {
        //creating order arraylist
         ArrayList<Order> orders = new ArrayList<>();
         
@@ -48,8 +49,8 @@ public class OrderDAO implements IOrderDAO {
             
             while(rs.next()){
                 
-                int returnCustomerId = rs.getInt("customer_id");
                 int returnOrderId = rs.getInt("order_id");
+                int returnCusId =  rs.getInt("customer_id");
                 LocalDateTime orderDate = rs.getTimestamp("order_date").toLocalDateTime();
                 String recAddress = rs.getString("rec_address");
                 String sendAddress = rs.getString("send_address");
@@ -58,7 +59,7 @@ public class OrderDAO implements IOrderDAO {
                 boolean isActive = rs.getBoolean("is_active");
                 String isActiveStatus = isActive ? "Active" : "Inactive";
                 
-                Order order = new Order(returnCustomerId,returnOrderId,orderDate, recAddress, sendAddress, totalAmount, orderStatus, isActive, isActiveStatus );
+                Order order = new Order(returnOrderId,returnCusId,orderDate, recAddress, sendAddress, totalAmount, orderStatus, isActive, isActiveStatus );
                 
                 order.setIsActiveStatus(isActiveStatus);
                 
@@ -81,13 +82,13 @@ public class OrderDAO implements IOrderDAO {
         try{
             Connection con = DBConnectionPanchali.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ORDER_BY_ID);
-            stmt.setInt(2, orderId);
+            stmt.setInt(1, orderId);
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
                 
-                int returnCustomerId = rs.getInt("customer_id");
                 int returnOrderId = rs.getInt("order_id");
+                int returnCusId =  rs.getInt("customer_id");
                 LocalDateTime orderDate = rs.getTimestamp("order_date").toLocalDateTime();
                 String recAddress = rs.getString("rec_address");
                 String sendAddress = rs.getString("send_address");
@@ -96,12 +97,12 @@ public class OrderDAO implements IOrderDAO {
                 boolean isActive = rs.getBoolean("is_active");
                 
                 
-                //Order order = new Order(returnCustomerId,returnOrderId,orderDate, recAddress, sendAddress, totalAmount, orderStatus, isActive, isActiveStatus );
+                //Order order = new Order(returnOrderId,orderDate, recAddress, sendAddress, totalAmount, orderStatus, isActive, isActiveStatus );
                 
                 Order order = new Order();
-                
-                order.setCustomerId(returnCustomerId);
+               
                 order.setOrderId(returnOrderId);
+                order.setCustomerId(returnCusId);
                 order.setOrderDate(orderDate);
                 order.setRecAddress(recAddress);
                 order.setSendAddress(sendAddress);
@@ -160,12 +161,13 @@ public class OrderDAO implements IOrderDAO {
             Connection con = DBConnectionPanchali.getConnection();
             PreparedStatement stmt = con.prepareStatement(UPDATE_ORDER);
             
-            stmt.setInt(1, order.getCustomerId());
-            stmt.setString(2, order.getRecAddress());
-            stmt.setString(3, order.getSendAddress());
-            stmt.setDouble(4, order.getTotalAmount());
-            stmt.setBoolean(5, order.getOrderStatus());
             
+            stmt.setString(1, order.getRecAddress());
+            stmt.setString(2, order.getSendAddress());
+            stmt.setDouble(3, order.getTotalAmount());
+            stmt.setBoolean(4, order.getOrderStatus());
+            
+            stmt.setInt(5, order.getCustomerId());
             stmt.setInt(6, order.getOrderId());
             
             rowUpdate = stmt.executeUpdate() > 0;
@@ -192,8 +194,6 @@ public class OrderDAO implements IOrderDAO {
             stmt.setInt(1, orderId);
             
             rowDelete = stmt.executeUpdate() > 0;
-            
-            Order order = new Order();
             
         }catch(Exception e){
             e.printStackTrace();

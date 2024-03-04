@@ -21,9 +21,9 @@ public class OrderController {
         this.orderDAO = new OrderDAO();
     }
     
-    public void addOrder(int customerId, String recAddress, String sendAddress, double totalAmount, boolean orderStatus){
+    public void addOrder(int cusId, String recAddress, String sendAddress, double totalAmount, boolean orderStatus){
         Order order = new Order();
-        order.setCustomerId(customerId);
+        order.setCustomerId(cusId);
         order.setRecAddress(recAddress);
         order.setSendAddress(sendAddress);
         order.setTotalAmount(totalAmount);
