@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.IPaymentDAO;
 import main.java.com.bs.model.Payment;
-import main.java.com.bs.utility.DBConnectionPanchali;
+import main.java.com.bs.utility.DBConnectionManditha;
 
 /**
  *
@@ -41,7 +41,7 @@ public class PaymentDAO implements IPaymentDAO{
         ArrayList<Payment> payments = new ArrayList<>();
         
         try{
-            Connection con = DBConnectionPanchali.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_PAYMENT);
             ResultSet rs = stmt.executeQuery();
             
@@ -76,7 +76,7 @@ public class PaymentDAO implements IPaymentDAO{
         ArrayList<Payment> payments = new ArrayList<>();
         
         try{
-            Connection con = DBConnectionPanchali.getConnection();
+            Connection con = DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_PAYMENT_BY_ID);
             stmt.setInt(1, paymentId);
             ResultSet rs = stmt.executeQuery();
@@ -123,7 +123,7 @@ public class PaymentDAO implements IPaymentDAO{
       
       try{
           
-          Connection con = DBConnectionPanchali.getConnection();
+          Connection con = DBConnectionManditha.getConnection();
           PreparedStatement stmt = con.prepareStatement(INSERT_PAYMENT);
           
           stmt.setDouble(1, payment.getAmount()); 
@@ -154,7 +154,7 @@ public class PaymentDAO implements IPaymentDAO{
       
       try{
           
-          Connection con = DBConnectionPanchali.getConnection();
+          Connection con = DBConnectionManditha.getConnection();
           PreparedStatement stmt = con.prepareStatement(UPDATE_PAYMENT);
           
           stmt.setDouble(1, payment.getAmount()); 
@@ -183,7 +183,7 @@ public class PaymentDAO implements IPaymentDAO{
         
         try{
             
-            Connection con =  DBConnectionPanchali.getConnection();
+            Connection con =  DBConnectionManditha.getConnection();
             PreparedStatement stmt = con.prepareStatement(DELETE_PAYMENT);
             
             stmt.setInt(1, paymentId);
