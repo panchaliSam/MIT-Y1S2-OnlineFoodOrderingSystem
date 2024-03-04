@@ -208,3 +208,87 @@ SELECT * FROM admin_menu;
 SELECT * FROM order_menu;
 SELECT * FROM customer_promotion;
 SELECT * FROM chef_order;
+
+ALTER TABLE payment 
+ADD CONSTRAINT fk_payment 
+FOREIGN KEY (customer_id) 
+REFERENCES customer(customer_id) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE;
+
+ALTER TABLE promotion 
+ADD CONSTRAINT fk1_promotion 
+FOREIGN KEY (owner_id) 
+REFERENCES owner(owner_id) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE;
+
+ALTER TABLE vehicle
+ADD CONSTRAINT fk_vehicle 
+FOREIGN KEY (delivery_person_id) 
+REFERENCES delivery_person(delivery_person_id) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE;
+
+ALTER TABLE orders
+ADD CONSTRAINT fk_orders 
+FOREIGN KEY (customer_id) 
+REFERENCES customer(customer_id) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE;
+
+ALTER TABLE inventory
+ADD CONSTRAINT fk_inventory 
+FOREIGN KEY (owner_id) 
+REFERENCES owner(owner_id) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE;
+
+ALTER TABLE admin_menu
+ADD CONSTRAINT fk1_admin_menu 
+FOREIGN KEY (admin_id) 
+REFERENCES admin(admin_id) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE,
+ADD CONSTRAINT fk2_admin_menu 
+FOREIGN KEY (item_id) 
+REFERENCES menu(item_id) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE;
+
+ALTER TABLE order_menu
+ADD CONSTRAINT fk1_order_menu 
+FOREIGN KEY (customer_id) 
+REFERENCES orders(customer_id) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE,
+ADD CONSTRAINT fk2_order_menu 
+FOREIGN KEY (item_id) 
+REFERENCES menu(item_id) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE;
+
+ALTER TABLE customer_promotion
+ADD CONSTRAINT fk1_customer_promotion 
+FOREIGN KEY (customer_id) 
+REFERENCES customer(customer_id) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE,
+ADD CONSTRAINT fk2_customer_promotion 
+FOREIGN KEY (promotion_id) 
+REFERENCES promotion(promotion_id) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE;
+
+ALTER TABLE chef_order
+ADD CONSTRAINT fk1_chef_order 
+FOREIGN KEY (chef_id) 
+REFERENCES chef(chef_id) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE,
+ADD CONSTRAINT fk2_chef_order 
+FOREIGN KEY (customer_id) 
+REFERENCES orders(customer_id) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE;
+
