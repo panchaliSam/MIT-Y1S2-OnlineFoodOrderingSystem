@@ -49,6 +49,7 @@ public class OrderDAO implements IOrderDAO {
             while(rs.next()){
                 
                 int returnOrderId = rs.getInt("order_id");
+                int returnCusId =  rs.getInt("customer_id");
                 LocalDateTime orderDate = rs.getTimestamp("order_date").toLocalDateTime();
                 String recAddress = rs.getString("rec_address");
                 String sendAddress = rs.getString("send_address");
@@ -57,7 +58,7 @@ public class OrderDAO implements IOrderDAO {
                 boolean isActive = rs.getBoolean("is_active");
                 String isActiveStatus = isActive ? "Active" : "Inactive";
                 
-                Order order = new Order(returnOrderId,orderDate, recAddress, sendAddress, totalAmount, orderStatus, isActive, isActiveStatus );
+                Order order = new Order(returnOrderId,returnCusId,orderDate, recAddress, sendAddress, totalAmount, orderStatus, isActive, isActiveStatus );
                 
                 order.setIsActiveStatus(isActiveStatus);
                 
@@ -86,6 +87,7 @@ public class OrderDAO implements IOrderDAO {
             while(rs.next()){
                 
                 int returnOrderId = rs.getInt("order_id");
+                int returnCusId =  rs.getInt("customer_id");
                 LocalDateTime orderDate = rs.getTimestamp("order_date").toLocalDateTime();
                 String recAddress = rs.getString("rec_address");
                 String sendAddress = rs.getString("send_address");
@@ -99,6 +101,7 @@ public class OrderDAO implements IOrderDAO {
                 Order order = new Order();
                
                 order.setOrderId(returnOrderId);
+                order.setCustomerId(returnCusId);
                 order.setOrderDate(orderDate);
                 order.setRecAddress(recAddress);
                 order.setSendAddress(sendAddress);
@@ -129,7 +132,7 @@ public class OrderDAO implements IOrderDAO {
             Connection con = DBConnectionPanchali.getConnection();
             PreparedStatement stmt = con.prepareStatement(INSERT_ORDER);
             
-            stmt.setInt(1, order.getOrderId());
+            stmt.setInt(1, order.getCustomerId());
             stmt.setString(2, order.getRecAddress());
             stmt.setString(3, order.getSendAddress());
             stmt.setDouble(4, order.getTotalAmount());
@@ -157,12 +160,13 @@ public class OrderDAO implements IOrderDAO {
             Connection con = DBConnectionPanchali.getConnection();
             PreparedStatement stmt = con.prepareStatement(UPDATE_ORDER);
             
-            stmt.setInt(1, order.getOrderId());
-            stmt.setString(2, order.getRecAddress());
-            stmt.setString(3, order.getSendAddress());
-            stmt.setDouble(4, order.getTotalAmount());
-            stmt.setBoolean(5, order.getOrderStatus());
             
+            stmt.setString(1, order.getRecAddress());
+            stmt.setString(2, order.getSendAddress());
+            stmt.setDouble(3, order.getTotalAmount());
+            stmt.setBoolean(4, order.getOrderStatus());
+            
+            stmt.setInt(5, order.getCustomerId());
             stmt.setInt(6, order.getOrderId());
             
             rowUpdate = stmt.executeUpdate() > 0;

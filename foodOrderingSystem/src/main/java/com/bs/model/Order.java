@@ -41,6 +41,10 @@ public class Order {
     public Order(int returnOrderId, LocalDateTime orderDate, String recAddress, String sendAddress, double totalAmount, boolean orderStatus, boolean active, String activeStatus) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    public Order(int returnOrderId, int cusId, LocalDateTime orderDate, String recAddress, String sendAddress, double totalAmount, boolean orderStatus, boolean active, String activeStatus) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     //Getter and Setters for orderId
     public int getOrderId(){
