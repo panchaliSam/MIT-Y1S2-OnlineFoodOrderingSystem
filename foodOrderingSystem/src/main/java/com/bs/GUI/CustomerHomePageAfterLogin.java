@@ -4,6 +4,7 @@
  */
 package main.java.com.bs.GUI;
 
+import customermenu.CusMenu;
 import javax.swing.JOptionPane;
 
 /**
@@ -59,6 +60,11 @@ public class CustomerHomePageAfterLogin extends javax.swing.JFrame {
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jButton4.setText("Menu");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 470, 200, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/com/bs/UIimages/WhatsApp Image 2024-03-03 at 09.33.55_dbcb41ef.jpg"))); // NOI18N
@@ -80,7 +86,9 @@ public class CustomerHomePageAfterLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        PlaceOrder po = new PlaceOrder();
+        po.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -89,6 +97,12 @@ public class CustomerHomePageAfterLogin extends javax.swing.JFrame {
         cushp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        CusMenu menu = new CusMenu();
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
