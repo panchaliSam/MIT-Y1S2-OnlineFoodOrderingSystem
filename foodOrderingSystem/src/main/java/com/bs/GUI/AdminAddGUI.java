@@ -4,6 +4,7 @@
  */
 package main.java.com.bs.GUI;
 
+import javax.swing.JOptionPane;
 import main.java.com.bs.controller.AdminController;
 
 /**
@@ -242,6 +243,56 @@ public class AdminAddGUI extends javax.swing.JFrame {
         String username = jTextField6.getText();
         String password = new String(jPasswordField1.getPassword());
         String password2 = new String(jPasswordField2.getPassword());
+        
+    
+        if (fname.isEmpty() || lname.isEmpty() || email.isEmpty() || telNo.isEmpty() || role.isEmpty() || username.isEmpty() || password.isEmpty() || password2.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "All fields are required.");
+            return;
+        }
+
+ 
+        if (!isValidName(fname)) {
+            JOptionPane.showMessageDialog(this, "First name cannot contain numerical values.");
+            jTextField1.setText(""); // Resetting the JTextField
+            return;
+        }
+
+
+        if (!isValidName(lname)) {
+            JOptionPane.showMessageDialog(this, "Last name cannot contain numerical values.");
+            jTextField2.setText(""); // Resetting the JTextField
+            return;
+        }
+
+
+        if (!isValidEmail(email)) {
+            JOptionPane.showMessageDialog(this, "Invalid email format.");
+            jTextField3.setText(""); // Resetting the JTextField
+            return;
+        }
+
+    
+        if (!isValidTelNo(telNo)) {
+            JOptionPane.showMessageDialog(this, "Telephone number should contain 10 digits.");
+            jTextField4.setText(""); // Resetting the JTextField
+            return;
+        }
+
+    
+        if (!isValidRole(role)) {
+            JOptionPane.showMessageDialog(this, "Role cannot contain numerical values.");
+            jTextField5.setText(""); // Resetting the JTextField
+            return;
+        }
+
+    
+        if (!password.equals(password2)) {
+            JOptionPane.showMessageDialog(this, "Passwords do not match.");
+            jPasswordField1.setText(""); // Resetting the JPasswordField
+            jPasswordField2.setText(""); // Resetting the JPasswordField
+            return;
+        }
+        
         admin.addAdmin(fname, lname, email, telNo, role, username, password);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -283,7 +334,24 @@ public class AdminAddGUI extends javax.swing.JFrame {
             }
         });
     }
+    
+    private boolean isValidName(String name) {
+        return !name.matches(".*\\d.*");
+    }
 
+    private boolean isValidEmail(String email) {
+        return email.contains("@");
+    }
+
+    private boolean isValidTelNo(String telNo) {
+        return telNo.matches("\\d{10}");
+    }
+
+    private boolean isValidRole(String role) {
+        return !role.matches(".*\\d.*");
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

@@ -10,7 +10,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.IChefDAO;
 import main.java.com.bs.model.Chef;
+<<<<<<< HEAD
 import main.java.com.bs.utility.DBConnectionManditha;
+=======
+import main.java.com.bs.utility.DBConnectionImesh;
+>>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
 
 /**
  *
@@ -41,7 +45,11 @@ public class ChefDAO implements IChefDAO{
         ArrayList<Chef> chefs = new ArrayList<>();
         
         try{
+<<<<<<< HEAD
             Connection con = DBConnectionManditha.getConnection();
+=======
+            Connection con = DBConnectionImesh.getConnection();
+>>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_CHEFS);
             ResultSet rs = stmt.executeQuery();
             
@@ -78,7 +86,11 @@ public class ChefDAO implements IChefDAO{
         ArrayList<Chef> chefs = new ArrayList<>();
         
         try{
+<<<<<<< HEAD
             Connection con = DBConnectionManditha.getConnection();
+=======
+            Connection con = DBConnectionImesh.getConnection();
+>>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
             PreparedStatement stmt = con.prepareStatement(SELECT_CHEF_BY_ID);
             stmt.setInt(1, chefId);
             ResultSet rs = stmt.executeQuery();
@@ -131,7 +143,11 @@ public class ChefDAO implements IChefDAO{
         
         try{
           
+<<<<<<< HEAD
           Connection con = DBConnectionManditha.getConnection();
+=======
+          Connection con = DBConnectionImesh.getConnection();
+>>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
           PreparedStatement stmt = con.prepareStatement(INSERT_CHEF);
           
           stmt.setString(1, chef.getFirstName()); 
@@ -162,7 +178,11 @@ public class ChefDAO implements IChefDAO{
         
         try{
           
+<<<<<<< HEAD
           Connection con = DBConnectionManditha.getConnection();
+=======
+          Connection con = DBConnectionImesh.getConnection();
+>>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
           PreparedStatement stmt = con.prepareStatement(UPDATE_CHEF);
           
           stmt.setString(1, chef.getFirstName()); 
@@ -196,7 +216,11 @@ public class ChefDAO implements IChefDAO{
         
         try{
             
+<<<<<<< HEAD
             Connection con =  DBConnectionManditha.getConnection();
+=======
+            Connection con =  DBConnectionImesh.getConnection();
+>>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
             PreparedStatement stmt = con.prepareStatement(DELETE_CHEF);
             
             stmt.setInt(1, chefId);

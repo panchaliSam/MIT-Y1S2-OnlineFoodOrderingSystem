@@ -8,7 +8,11 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.IOrderDAO;
 import main.java.com.bs.model.Order;
+<<<<<<< HEAD
 import main.java.com.bs.utility.DBConnectionManditha;
+=======
+import main.java.com.bs.utility.DBConnectionImesh;
+>>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -43,7 +47,11 @@ private static final String SELECT_ORDER_BY_ID = "SELECT order_id, customer_id, 
         ArrayList<Order> orders = new ArrayList<>();
         
         try{
+<<<<<<< HEAD
             Connection con = DBConnectionManditha.getConnection();
+=======
+            Connection con = DBConnectionImesh.getConnection();
+>>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_ORDERS);
             ResultSet rs = stmt.executeQuery();
             
@@ -80,7 +88,11 @@ private static final String SELECT_ORDER_BY_ID = "SELECT order_id, customer_id, 
         ArrayList<Order> orders = new ArrayList<>();
         
         try{
+<<<<<<< HEAD
             Connection con = DBConnectionManditha.getConnection();
+=======
+            Connection con = DBConnectionImesh.getConnection();
+>>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
             PreparedStatement stmt = con.prepareStatement(SELECT_ORDER_BY_ID);
             stmt.setInt(1, orderId);
             ResultSet rs = stmt.executeQuery();
@@ -130,7 +142,11 @@ private static final String SELECT_ORDER_BY_ID = "SELECT order_id, customer_id, 
         
         try{
             
+<<<<<<< HEAD
             Connection con = DBConnectionManditha.getConnection();
+=======
+            Connection con = DBConnectionImesh.getConnection();
+>>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
             PreparedStatement stmt = con.prepareStatement(INSERT_ORDER);
             
             stmt.setInt(1, order.getCustomerId());
@@ -158,7 +174,11 @@ private static final String SELECT_ORDER_BY_ID = "SELECT order_id, customer_id, 
         
         try{
             
+<<<<<<< HEAD
             Connection con = DBConnectionManditha.getConnection();
+=======
+            Connection con = DBConnectionImesh.getConnection();
+>>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
             PreparedStatement stmt = con.prepareStatement(UPDATE_ORDER);
             
             
@@ -188,7 +208,11 @@ private static final String SELECT_ORDER_BY_ID = "SELECT order_id, customer_id, 
         boolean rowDelete = false; 
         
         try{
+<<<<<<< HEAD
             Connection con =  DBConnectionManditha.getConnection();
+=======
+            Connection con =  DBConnectionImesh.getConnection();
+>>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
             PreparedStatement stmt = con.prepareStatement(DELETE_ORDER);
             
             stmt.setInt(1, orderId);

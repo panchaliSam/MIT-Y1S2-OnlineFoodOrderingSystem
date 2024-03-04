@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.IAdminDAO;
 import main.java.com.bs.model.Admin;
-import main.java.com.bs.utility.DBConnectionManditha;
+import main.java.com.bs.utility.DBConnectionImesh;
 
 /**
  *
@@ -42,7 +42,7 @@ public class AdminDAO implements IAdminDAO{
         ArrayList<Admin> admins = new ArrayList<>();
         
         try{
-            Connection con = DBConnectionManditha.getConnection();
+            Connection con = DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_ADMINS);
             ResultSet rs = stmt.executeQuery();
             
@@ -82,7 +82,7 @@ public class AdminDAO implements IAdminDAO{
         ArrayList<Admin> admins = new ArrayList<>();
         
         try{
-            Connection con = DBConnectionManditha.getConnection();
+            Connection con = DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ADMIN_BY_ID);
             stmt.setInt(1, adminId);
             ResultSet rs = stmt.executeQuery();
@@ -141,7 +141,7 @@ public class AdminDAO implements IAdminDAO{
         
         try{
           
-          Connection con = DBConnectionManditha.getConnection();
+          Connection con = DBConnectionImesh.getConnection();
           PreparedStatement stmt = con.prepareStatement(INSERT_ADMIN);
           
           stmt.setInt(1, admin.getOwnerId());
@@ -174,7 +174,7 @@ public class AdminDAO implements IAdminDAO{
         
         try{
           
-          Connection con = DBConnectionManditha.getConnection();
+          Connection con = DBConnectionImesh.getConnection();
           PreparedStatement stmt = con.prepareStatement(UPDATE_ADMIN);
           
           stmt.setInt(1, admin.getOwnerId());
@@ -210,7 +210,7 @@ public class AdminDAO implements IAdminDAO{
         
         try{
             
-            Connection con =  DBConnectionManditha.getConnection();
+            Connection con =  DBConnectionImesh.getConnection();
             PreparedStatement stmt = con.prepareStatement(DELETE_ADMIN);
             
             stmt.setInt(1, adminId);
