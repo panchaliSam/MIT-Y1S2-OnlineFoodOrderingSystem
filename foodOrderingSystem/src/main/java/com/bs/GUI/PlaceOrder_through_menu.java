@@ -5,6 +5,14 @@
 package main.java.com.bs.GUI;
 
 import customermenu.CusMenu;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -134,10 +142,42 @@ public class PlaceOrder_through_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String url = "jdbc:mysql://localhost:3306/onlinefoodorderingsystem";
+        String user = "root";
+        String password = "123";
         
-        MakePayment payment = new MakePayment();
-        payment.setVisible(true);
-        this.dispose();
+        int itemId = Integer.parseInt(jTextField1.getText());
+
+        try {
+            
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(url, user, password); 
+            
+            String sql = "SELECT price FROM menu WHERE item_id = ?";
+            
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, itemId);
+            ResultSet rs = stmt.executeQuery(); 
+            
+            if (rs.next()) {
+                double price = rs.getDouble("price");
+                
+                JOptionPane.showMessageDialog(this, "The item price is $" +price+ ". You can make the payment now!");
+                
+                MakePayment payment = new MakePayment();
+                payment.setVisible(true);
+                this.dispose();
+            } 
+            else {
+                JOptionPane.showMessageDialog(this, "Item not found with ID: " + itemId+ "!");
+                jTextField1.setText("");
+            }
+        } 
+        catch (SQLException e) {
+            System.err.println("Error connecting to database: " + e.getMessage());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PlaceOrder.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
