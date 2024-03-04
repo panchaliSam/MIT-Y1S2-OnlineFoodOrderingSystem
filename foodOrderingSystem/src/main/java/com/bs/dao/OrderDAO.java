@@ -21,20 +21,21 @@ import java.sql.ResultSet;
 public class OrderDAO implements IOrderDAO {
     
     private static final String SELECT_ALL_ORDERS ="SELECT order_id, customer_id, order_date, "
-                                                  + "rec_address, send_address, total_amount, order_status, is_active"
+                                                  + "rec_address, send_address, total_amount, order_status, is_active "
                                                   + "FROM orders";
     
-    private static final String SELECT_ORDER_BY_ID = "SELECT order_id, customer_id, order_date, "
-                                                   + "rec_address, send_address, total_amount, order_status, is_active"
+private static final String SELECT_ORDER_BY_ID = "SELECT order_id, customer_id, order_date, "
+                                                   + "rec_address, send_address, total_amount, order_status, is_active "
                                                    + "FROM orders "
-                                                   + "WHERE customer_id = ? AND order_id = ?";    
+                                                   + "WHERE order_id = ?";
+  
     
     private static final String INSERT_ORDER = "INSERT INTO orders(customer_id, rec_address, send_address, total_amount, order_status) "
                                              + "VALUES(?, ?, ?, ?, ?);";
     
     private static final String UPDATE_ORDER = "UPDATE orders SET rec_address = ?, send_address = ?, total_amount = ?, order_status = ? WHERE customer_id = ? AND order_id = ?";
    
-    private static final String DELETE_ORDER = "DELETE FROM orders WHERE customer_id = ? AND order_id = ?";
+    private static final String DELETE_ORDER = "DELETE FROM orders WHERE order_id = ?";
 
     @Override
     public ArrayList<Order> selectAllOrders(int orderId) {
@@ -81,7 +82,7 @@ public class OrderDAO implements IOrderDAO {
         try{
             Connection con = DBConnectionPanchali.getConnection();
             PreparedStatement stmt = con.prepareStatement(SELECT_ORDER_BY_ID);
-            stmt.setInt(2, orderId);
+            stmt.setInt(1, orderId);
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
