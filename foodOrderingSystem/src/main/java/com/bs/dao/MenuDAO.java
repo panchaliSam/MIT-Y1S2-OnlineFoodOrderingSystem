@@ -22,17 +22,18 @@ private static final String SELECT_ALL_MENU = "SELECT item_id, menu_name, descri
                                                     + "is_active "
                                                     + "FROM menu";
     
-    private static final String SELECT_ALL_MENU_BY_ID = "SELECT item_id, menu_name, description, price, category, "
+private static final String SELECT_ALL_MENU_BY_ID = "SELECT item_id, menu_name, description, price, category, "
                                                     + "is_active "
-                                                    + "FROM menu"
-                                                    + "WHERE menu_id = ?";
+                                                    + "FROM menu "
+                                                    + "WHERE item_id = ?";
+
     
     private static final String INSERT_MENU = "INSERT INTO menu(menu_name, description, price, category) "
                                             + "VALUES(?, ?, ?, ?);";
     
-    private static final String UPDATE_MENU = "UPDATE menu SET  category = ?, price = ?, description = ?, menu_name = ? WHERE item_id = ?"; 
+    private static final String UPDATE_MENU = "UPDATE menu SET  menu_name = ?, description = ?, price = ?, category = ?  WHERE item_id = ?"; 
     
-    private static final String DELETE_MENU = "DELETE FROM payment WHERE payment_id = ?";
+    private static final String DELETE_MENU = "DELETE FROM menu WHERE item_id = ?";
 
    
     @Override
@@ -84,7 +85,7 @@ private static final String SELECT_ALL_MENU = "SELECT item_id, menu_name, descri
                
                 int return_item_id = rs.getInt("item_id");
                 String menu_name = rs.getString("menu_name");
-                String desription = rs.getString("desription");
+                String desription = rs.getString("description");
                 double price = rs.getDouble("price");
                 String category = rs.getString("category");
                 boolean is_active = rs.getBoolean("is_active");
@@ -152,7 +153,7 @@ private static final String SELECT_ALL_MENU = "SELECT item_id, menu_name, descri
           stmt.setString(1, menu.getMenuName());
           stmt.setString(2, menu.getDescription());
           stmt.setDouble(3, menu.getPrice()); 
-          stmt.setString(4, menu.getCategory());       
+          stmt.setString(4, menu.getCategory());
           
           stmt.setInt(5, menu.getItemId());
           

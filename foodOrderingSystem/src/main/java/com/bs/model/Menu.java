@@ -23,17 +23,13 @@ public class Menu {
     
     
     //parametric constuctor
-    public Menu(int itemId, String menuName, String description, int price, String category, boolean isActive) {
+    public Menu(int itemId, String menuName, String description, double price, String category, boolean isActive) {
         this.itemId = itemId;
         this.menuName = menuName;
         this.description = description;
         this.price = price;
         this.category = category;
         this.isActive = isActive;
-    }
-
-    public Menu(int return_item_id, String menu_name, String desription, double price, String category, boolean _active) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     //getter and setter for itemId
