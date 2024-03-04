@@ -149,10 +149,11 @@ private static final String SELECT_ALL_MENU = "SELECT item_id, menu_name, descri
           PreparedStatement stmt = con.prepareStatement(UPDATE_MENU);
                     
           
-          stmt.setString(1, menu.getCategory());
-          stmt.setDouble(2, menu.getPrice()); 
-          stmt.setString(3, menu.getDescription());
-          stmt.setString(4, menu.getMenuName());
+          stmt.setString(1, menu.getMenuName());
+          stmt.setString(2, menu.getDescription());
+          stmt.setDouble(3, menu.getPrice()); 
+          stmt.setString(4, menu.getCategory());       
+          
           stmt.setInt(5, menu.getItemId());
           
           rowUpdate = stmt.executeUpdate() > 0;
