@@ -161,12 +161,12 @@ public class OrderAdd extends javax.swing.JFrame {
 OrderController controller=new OrderController();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int customerId=Integer.parseInt(jTextField1.getText());
+        int orderId=Integer.parseInt(jTextField1.getText());
         String recAddress=jTextField2.getText();
         String sendAddress=jTextField3.getText();
         double totalAmount=Double.parseDouble(jTextField4.getText());
         boolean orderStatus=Boolean.parseBoolean(jTextField5.getText());
-        controller.addOrder(customerId, recAddress, sendAddress, totalAmount, orderStatus);
+        controller.addOrder(orderId, recAddress, sendAddress, totalAmount, orderStatus);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
