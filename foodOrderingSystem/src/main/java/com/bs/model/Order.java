@@ -38,7 +38,7 @@ public class Order {
         this.isActive = isActive;
     }
 
-    public Order(int returnCustomerId, int returnOrderId, LocalDateTime orderDate, String recAddress, String sendAddress, double totalAmount, boolean orderStatus, boolean active, String activeStatus) {
+    public Order(int returnOrderId, LocalDateTime orderDate, String recAddress, String sendAddress, double totalAmount, boolean orderStatus, boolean active, String activeStatus) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

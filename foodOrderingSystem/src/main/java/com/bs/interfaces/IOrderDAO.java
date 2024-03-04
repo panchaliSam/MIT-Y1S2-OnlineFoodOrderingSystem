@@ -15,7 +15,7 @@ import main.java.com.bs.model.Order;
 public interface IOrderDAO {
     
      //retreive all the orders for a specific customer
-        ArrayList<Order>selectAllOrders(int customerId);
+        ArrayList<Order>selectAllOrders(int orderId);
         
         //retreive specific order for a specific customer
     	ArrayList<Order>selectOrder(int orderId);
