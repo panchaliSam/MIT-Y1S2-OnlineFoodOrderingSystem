@@ -10,11 +10,7 @@ package main.java.com.bs.dao;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.IVehicleDAO;
 import main.java.com.bs.model.Vehicle;
-<<<<<<< HEAD
 import main.java.com.bs.utility.DBConnectionManditha;
-=======
-import main.java.com.bs.utility.DBConnectionImesh;
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet; 
@@ -43,11 +39,8 @@ public class VehicleDAO implements IVehicleDAO{
         ArrayList<Vehicle> vehicles = new ArrayList<>();
         
         try{
-<<<<<<< HEAD
+
             Connection con = DBConnectionManditha.getConnection();
-=======
-            Connection con = DBConnectionImesh.getConnection();
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_VEHICLES);
             ResultSet rs = stmt.executeQuery();
             
@@ -84,11 +77,8 @@ public class VehicleDAO implements IVehicleDAO{
         
         Vehicle vehicle = new Vehicle();
         try{
-<<<<<<< HEAD
+
             Connection con = DBConnectionManditha.getConnection();
-=======
-            Connection con = DBConnectionImesh.getConnection();
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
            // System.out.println(con);
             PreparedStatement stmt = con.prepareStatement(SELECT_VEHICLE_BY_ID);
             stmt.setInt(1, vehicleId);
@@ -140,11 +130,8 @@ public class VehicleDAO implements IVehicleDAO{
       
       try{
           
-<<<<<<< HEAD
+
           Connection con = DBConnectionManditha.getConnection();
-=======
-          Connection con = DBConnectionImesh.getConnection();
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
           PreparedStatement stmt = con.prepareStatement(INSERT_VEHICLE);
           
           stmt.setInt(1, vehicle.getdelpID());
@@ -173,11 +160,8 @@ public class VehicleDAO implements IVehicleDAO{
       
       try{
           
-<<<<<<< HEAD
+
           Connection con = DBConnectionManditha.getConnection();
-=======
-          Connection con = DBConnectionImesh.getConnection();
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
           PreparedStatement stmt = con.prepareStatement(UPDATE_VEHICLE);
           
           stmt.setInt(1, vehicle.getdelpID());
@@ -208,11 +192,8 @@ public class VehicleDAO implements IVehicleDAO{
         
         try{
             
-<<<<<<< HEAD
+
             Connection con =  DBConnectionManditha.getConnection();
-=======
-            Connection con =  DBConnectionImesh.getConnection();
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
             PreparedStatement stmt = con.prepareStatement(DELETE_VEHICLE);
             
             stmt.setInt(1, vehicleId);

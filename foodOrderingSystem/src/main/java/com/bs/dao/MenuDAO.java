@@ -10,11 +10,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.IMenuDAO;
 import main.java.com.bs.model.Menu;
-<<<<<<< HEAD
+
 import main.java.com.bs.utility.DBConnectionManditha;
-=======
-import main.java.com.bs.utility.DBConnectionImesh;
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
 
 /**
  *
@@ -46,11 +43,8 @@ private static final String SELECT_ALL_MENU_BY_ID = "SELECT item_id, menu_name, 
         ArrayList<Menu> menus = new ArrayList<>();
         
         try{
-<<<<<<< HEAD
+
             Connection con = DBConnectionManditha.getConnection();
-=======
-            Connection con = DBConnectionImesh.getConnection();
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_MENU);
             ResultSet rs = stmt.executeQuery();
             
@@ -83,11 +77,8 @@ private static final String SELECT_ALL_MENU_BY_ID = "SELECT item_id, menu_name, 
         ArrayList<Menu> menus = new ArrayList<>();
         
         try{
-<<<<<<< HEAD
+
             Connection con = DBConnectionManditha.getConnection();
-=======
-            Connection con = DBConnectionImesh.getConnection();
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_MENU_BY_ID);
             stmt.setInt(1, itemId);
             ResultSet rs = stmt.executeQuery();
@@ -131,11 +122,8 @@ private static final String SELECT_ALL_MENU_BY_ID = "SELECT item_id, menu_name, 
       
       try{
           
-<<<<<<< HEAD
+
           Connection con = DBConnectionManditha.getConnection();
-=======
-          Connection con = DBConnectionImesh.getConnection();
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
           PreparedStatement stmt = con.prepareStatement(INSERT_MENU);
           
           stmt.setString(1, menu.getMenuName());
@@ -162,11 +150,8 @@ private static final String SELECT_ALL_MENU_BY_ID = "SELECT item_id, menu_name, 
       
       try{
           
-<<<<<<< HEAD
+
           Connection con = DBConnectionManditha.getConnection();
-=======
-          Connection con = DBConnectionImesh.getConnection();
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
           PreparedStatement stmt = con.prepareStatement(UPDATE_MENU);
                     
           
@@ -196,11 +181,8 @@ private static final String SELECT_ALL_MENU_BY_ID = "SELECT item_id, menu_name, 
         
         try{
             
-<<<<<<< HEAD
+
             Connection con =  DBConnectionManditha.getConnection();
-=======
-            Connection con =  DBConnectionImesh.getConnection();
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
             PreparedStatement stmt = con.prepareStatement(DELETE_MENU);
             
             stmt.setInt(1, itemId);

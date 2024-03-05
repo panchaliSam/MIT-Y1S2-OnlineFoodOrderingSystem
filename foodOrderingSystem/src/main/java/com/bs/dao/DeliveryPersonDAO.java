@@ -6,11 +6,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import main.java.com.bs.interfaces.IDeliveryPersonDAO;
 import main.java.com.bs.model.DeliveryPerson;
-<<<<<<< HEAD
+
 import main.java.com.bs.utility.DBConnectionManditha;
-=======
-import main.java.com.bs.utility.DBConnectionImesh;
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
+
 
 /**
  *
@@ -41,11 +39,8 @@ public class DeliveryPersonDAO implements IDeliveryPersonDAO {
         ArrayList<DeliveryPerson> deliverypersons = new ArrayList<>();
         
         try{
-<<<<<<< HEAD
+
             Connection con = DBConnectionManditha.getConnection();
-=======
-            Connection con = DBConnectionImesh.getConnection();
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
             PreparedStatement stmt = con.prepareStatement(SELECT_ALL_DELIVERYPERSONS);
             ResultSet rs = stmt.executeQuery();
             
@@ -86,11 +81,7 @@ public class DeliveryPersonDAO implements IDeliveryPersonDAO {
         ArrayList<DeliveryPerson> deliverypersons = new ArrayList<>();
         
         try{
-<<<<<<< HEAD
             Connection con = DBConnectionManditha.getConnection();
-=======
-            Connection con = DBConnectionImesh.getConnection();
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
             PreparedStatement stmt = con.prepareStatement(SELECT_DELIVERYPERSON_BY_ID);
             stmt.setInt(1, deliverypersonId);
             ResultSet rs = stmt.executeQuery();
@@ -139,11 +130,8 @@ public class DeliveryPersonDAO implements IDeliveryPersonDAO {
       
       try{
           
-<<<<<<< HEAD
+
           Connection con = DBConnectionManditha.getConnection();
-=======
-          Connection con = DBConnectionImesh.getConnection();
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
           PreparedStatement stmt = con.prepareStatement(INSERT_DELIVERYPERSON);
           
           stmt.setString(1, deliveryperson.getFirstName()); 
@@ -173,11 +161,8 @@ public class DeliveryPersonDAO implements IDeliveryPersonDAO {
       
       try{
           
-<<<<<<< HEAD
+
           Connection con = DBConnectionManditha.getConnection();
-=======
-          Connection con = DBConnectionImesh.getConnection();
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
           PreparedStatement stmt = con.prepareStatement(UPDATE_DELIVERYPERSON);
           
           stmt.setString(1, deliveryperson.getFirstName());
@@ -209,11 +194,8 @@ public class DeliveryPersonDAO implements IDeliveryPersonDAO {
         
         try{
             
-<<<<<<< HEAD
+
             Connection con =  DBConnectionManditha.getConnection();
-=======
-            Connection con =  DBConnectionImesh.getConnection();
->>>>>>> 75668f09b908a574f9b0d2787ccdba1632ef0778
             PreparedStatement stmt = con.prepareStatement(DELETE_DELIVERYPERSON);
             
             stmt.setInt(1, deliverypersonId);
